@@ -60,8 +60,6 @@ export default function ContactPage() {
               className="contactForm"
               name="plumbing-enquiry"
               method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
               action="/thank-you"
             >
               <input type="hidden" name="form-name" value="plumbing-enquiry" />

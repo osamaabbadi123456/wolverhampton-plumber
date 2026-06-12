@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <form name="plumbing-enquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="plumbing-enquiry" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="area" />
+      <select name="issue">
+        <option value="Leak or burst pipe concern">
+          Leak or burst pipe concern
+        </option>
+        <option value="Blocked toilet">Blocked toilet</option>
+        <option value="Blocked sink or drain">Blocked sink or drain</option>
+        <option value="Tap repair">Tap repair</option>
+        <option value="Shower or bathroom plumbing">
+          Shower or bathroom plumbing
+        </option>
+        <option value="Kitchen plumbing">Kitchen plumbing</option>
+        <option value="Radiator or heating plumbing">
+          Radiator or heating plumbing
+        </option>
+        <option value="Water pressure problem">Water pressure problem</option>
+        <option value="Other plumbing issue">Other plumbing issue</option>
+      </select>
+      <select name="urgency">
+        <option value="Urgent today">Urgent today</option>
+        <option value="Within 24-48 hours">Within 24-48 hours</option>
+        <option value="This week">This week</option>
+        <option value="Flexible">Flexible</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
