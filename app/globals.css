@@ -861,3 +861,13 @@ p {
     color: #111111;
   }
 }
+.formError {
+  grid-column: 1 / -1;
+  background: #ffe9e9;
+  color: #8a0000;
+  border: 1px solid #ffb3b3;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 800;
+  margin: 0;
+}
