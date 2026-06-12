@@ -1,75 +1,25 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-
-function encodeFormData(data: Record<string, string>) {
-  return new URLSearchParams(data).toString();
-}
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const router = useRouter();
+  const [state, handleSubmit] = useForm("mwvjwlwj");
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const payload: Record<string, string> = {
-      "form-name": "plumbing-enquiry",
-      "bot-field": String(formData.get("bot-field") || ""),
-      name: String(formData.get("name") || ""),
-      phone: String(formData.get("phone") || ""),
-      email: String(formData.get("email") || ""),
-      area: String(formData.get("area") || ""),
-      issue: String(formData.get("issue") || ""),
-      urgency: String(formData.get("urgency") || ""),
-      message: String(formData.get("message") || ""),
-    };
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: encodeFormData(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
-      window.location.href = "/thank-you";
-    } catch {
-      setError(
-        "Sorry, your enquiry could not be sent. Please try WhatsApp instead.",
-      );
-      setIsSubmitting(false);
+  useEffect(() => {
+    if (state.succeeded) {
+      router.push("/thank-you");
     }
-  }
+  }, [state.succeeded, router]);
 
   return (
-    <form
-      className="contactForm"
-      name="plumbing-enquiry"
-      onSubmit={handleSubmit}
-    >
-      <input type="hidden" name="form-name" value="plumbing-enquiry" />
-
-      <p className="hiddenField">
-        <label>
-          Do not fill this out if you are human:
-          <input name="bot-field" />
-        </label>
-      </p>
-
+    <form className="contactForm" onSubmit={handleSubmit}>
       <label>
         Your name
         <input type="text" name="name" placeholder="Your name" required />
+        <ValidationError prefix="Name" field="name" errors={state.errors} />
       </label>
 
       <label>
@@ -80,11 +30,13 @@ export default function ContactForm() {
           placeholder="Your phone number"
           required
         />
+        <ValidationError prefix="Phone" field="phone" errors={state.errors} />
       </label>
 
       <label>
         Email address
         <input type="email" name="email" placeholder="Your email address" />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
       </label>
 
       <label>
@@ -95,6 +47,7 @@ export default function ContactForm() {
           placeholder="e.g. Bilston, Wednesfield, Tettenhall"
           required
         />
+        <ValidationError prefix="Area" field="area" errors={state.errors} />
       </label>
 
       <label>
@@ -119,6 +72,7 @@ export default function ContactForm() {
           <option value="Water pressure problem">Water pressure problem</option>
           <option value="Other plumbing issue">Other plumbing issue</option>
         </select>
+        <ValidationError prefix="Issue" field="issue" errors={state.errors} />
       </label>
 
       <label>
@@ -132,6 +86,11 @@ export default function ContactForm() {
           <option value="This week">This week</option>
           <option value="Flexible">Flexible</option>
         </select>
+        <ValidationError
+          prefix="Urgency"
+          field="urgency"
+          errors={state.errors}
+        />
       </label>
 
       <label className="full">
@@ -142,17 +101,24 @@ export default function ContactForm() {
           placeholder="Tell us what happened, where the issue is, and any useful details."
           required
         />
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
       </label>
+
+      <input type="hidden" name="website" value="wolverhamptonplumber.co.uk" />
 
       <button
         type="submit"
         className="btn primary formButton"
-        disabled={isSubmitting}
+        disabled={state.submitting}
       >
-        {isSubmitting ? "Sending..." : "Send Plumbing Enquiry"}
+        {state.submitting ? "Sending..." : "Send Plumbing Enquiry"}
       </button>
 
-      {error && <p className="formError">{error}</p>}
+      <ValidationError errors={state.errors} />
 
       <p className="formNote">
         By sending this enquiry, you understand this website helps organise
