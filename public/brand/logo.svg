@@ -1,0 +1,24 @@
+<svg width="460" height="104" viewBox="0 0 460 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="96" height="96" rx="24" fill="#111111"/>
+
+  <!-- House roof -->
+  <path d="M24 48L52 24L80 48" stroke="#FDB913" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- House body -->
+  <path d="M32 48V78H72V48" stroke="#FDB913" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Pipe -->
+  <path d="M42 64H62C68 64 72 68 72 74V78" stroke="#FDB913" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Water drop -->
+  <path d="M52 42C52 42 43 54 43 62C43 68 47 72 52 72C57 72 61 68 61 62C61 54 52 42 52 42Z" fill="#FDB913"/>
+
+  <!-- WP letters -->
+  <text x="116" y="45" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" letter-spacing="-1.4" fill="#111111">
+    Wolverhampton
+  </text>
+
+  <text x="116" y="80" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" letter-spacing="-1.2" fill="#FDB913">
+    Plumber
+  </text>
+</svg>
