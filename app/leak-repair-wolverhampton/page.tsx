@@ -1,53 +1,69 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import styles from "./EmergencyPage.module.css";
+import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
 
 const whatsappLink =
-  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20urgent%20plumbing%20help%20in%20Wolverhampton.";
+  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20help%20with%20a%20leak%20or%20pipework%20issue%20in%20Wolverhampton.";
 
 export const metadata: Metadata = {
-  title: "Emergency Plumber Wolverhampton | Urgent Plumbing Enquiries",
+  title: "Leak Repair Wolverhampton | Plumbing Leak Enquiries",
   description:
-    "Need urgent plumbing help in Wolverhampton? Send a WhatsApp enquiry for leaks, blocked toilets, blocked drains, tap repairs, bathroom plumbing and burst pipe concerns.",
+    "Leak repair Wolverhampton enquiries by WhatsApp. Send details for leaking pipes, under-sink leaks, bathroom leaks, kitchen leaks, tap leaks and urgent water leak concerns.",
+  keywords: [
+    "leak repair Wolverhampton",
+    "plumbing leak Wolverhampton",
+    "leaking pipe Wolverhampton",
+    "pipe leak repair Wolverhampton",
+    "water leak plumber Wolverhampton",
+    "emergency leak plumber Wolverhampton",
+    "under sink leak Wolverhampton",
+    "bathroom leak Wolverhampton",
+    "kitchen leak Wolverhampton",
+    "Wolverhampton plumber",
+  ],
   alternates: {
-    canonical: "/emergency-plumber-wolverhampton",
+    canonical: "/leak-repair-wolverhampton",
+  },
+  openGraph: {
+    title: "Leak Repair Wolverhampton | Plumbing Leak Enquiries",
+    description:
+      "Send a WhatsApp enquiry for leaking pipes, under-sink leaks, bathroom leaks, kitchen leaks, tap leaks and urgent water leak concerns in Wolverhampton.",
+    url: "https://wolverhamptonplumber.co.uk/leak-repair-wolverhampton",
+    type: "website",
+    locale: "en_GB",
   },
 };
 
 const services = [
   {
-    title: "Emergency Plumbing",
-    text: "Send urgent plumbing enquiries for leaks, pipework concerns, blocked toilets and sudden water problems across Wolverhampton.",
-    points: [
-      "Leaks & pipe concerns",
-      "Blocked toilets",
-      "Urgent plumbing issues",
-    ],
+    title: "Leaking Pipes",
+    text: "Send a clear enquiry for visible pipe leaks, dripping pipework, water marks or sudden water problems around the property.",
+    points: ["Visible pipe leak", "Dripping pipework", "Water marks"],
   },
   {
-    title: "Blocked Toilets",
-    text: "For toilet blockages, rising water, repeated flushing problems or bathroom waste issues.",
-    points: ["Toilet blockage", "Rising water", "Bathroom waste issues"],
+    title: "Under-Sink Leaks",
+    text: "For leaks below kitchen or bathroom sinks, waste pipe concerns, loose fittings or water collecting inside cabinets.",
+    points: ["Kitchen sink leak", "Bathroom sink leak", "Waste pipe concern"],
   },
   {
-    title: "Blocked Drains",
-    text: "For blocked sinks, slow draining water, bathroom drains, kitchen waste and outside drain concerns.",
-    points: ["Blocked sinks", "Slow draining water", "Drainage concerns"],
+    title: "Bathroom Leaks",
+    text: "For water around toilets, basins, baths, showers, tiles or visible bathroom pipework.",
+    points: ["Toilet area leaks", "Shower leaks", "Basin pipework"],
   },
   {
-    title: "Leak Repairs",
-    text: "For leaking taps, leaking pipework, under-sink leaks, bathroom leaks and kitchen water issues.",
-    points: ["Under-sink leaks", "Pipework leaks", "Tap leaks"],
+    title: "Kitchen Leaks",
+    text: "For leaking kitchen taps, sink waste, appliance pipework, isolation valves or pipework under worktops.",
+    points: ["Kitchen tap leak", "Appliance pipework", "Sink waste leaks"],
   },
   {
-    title: "Bathroom Plumbing",
-    text: "For toilets, basins, baths, showers and bathroom pipework enquiries in Wolverhampton.",
-    points: ["Toilets", "Showers", "Basins & baths"],
+    title: "Tap Leaks",
+    text: "For dripping taps, leaking tap bases, loose fittings, poor shut-off or water escaping around fixtures.",
+    points: ["Dripping taps", "Leaking tap base", "Loose fittings"],
   },
   {
-    title: "Kitchen Plumbing",
-    text: "For kitchen sink leaks, waste pipe problems, appliance pipework and water supply issues.",
-    points: ["Kitchen sinks", "Waste pipes", "Appliance pipework"],
+    title: "Urgent Water Leak Enquiries",
+    text: "If water is actively leaking, include the area, where the leak is coming from and how urgent it is.",
+    points: ["Active leak", "Urgent today", "Clear WhatsApp message"],
   },
 ];
 
@@ -75,29 +91,29 @@ const areas = [
 
 const faqs = [
   {
-    q: "Can I send an emergency plumber enquiry in Wolverhampton?",
-    a: "Yes. You can send a WhatsApp enquiry with your area, issue, urgency and any useful details. The message opens pre-filled so you can edit it before sending.",
+    q: "Can I send a leak repair enquiry in Wolverhampton?",
+    a: "Yes. You can send a WhatsApp enquiry with your Wolverhampton area, where the leak is, how urgent it is and any useful details.",
   },
   {
-    q: "What urgent plumbing problems can I send?",
-    a: "Common enquiries include leaks, blocked toilets, blocked drains, tap repairs, shower issues, bathroom plumbing and kitchen plumbing problems.",
+    q: "What leak problems can I send?",
+    a: "Common enquiries include leaking pipes, under-sink leaks, bathroom leaks, kitchen leaks, tap leaks and visible pipework concerns.",
   },
   {
-    q: "Is attendance guaranteed?",
-    a: "No. This website helps organise local plumbing enquiries in Wolverhampton. Response depends on availability, timing and the details of the enquiry.",
+    q: "What should I do if water is actively leaking?",
+    a: "If safe, turn off the internal stop tap and keep away from electrical danger. Then send clear details and photos if useful.",
   },
   {
-    q: "What about gas or boiler emergencies?",
-    a: "Gas work must be handled by a Gas Safe registered engineer. If you smell gas or suspect a gas leak, follow official emergency guidance immediately.",
+    q: "What details help with a leak enquiry?",
+    a: "Include your area, the affected room, where the water appears to be coming from, whether it is dripping or flowing, and how urgent it feels.",
   },
 ];
 
-export default function EmergencyPlumberWolverhamptonPage() {
+export default function LeakRepairWolverhamptonPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Emergency Plumber Wolverhampton Enquiries",
-    serviceType: "Emergency plumbing enquiries",
+    name: "Leak Repair Wolverhampton Enquiries",
+    serviceType: "Plumbing leak enquiries",
     areaServed: {
       "@type": "City",
       name: "Wolverhampton",
@@ -107,9 +123,9 @@ export default function EmergencyPlumberWolverhamptonPage() {
       name: "Wolverhampton Plumber",
       url: "https://wolverhamptonplumber.co.uk",
     },
-    url: "https://wolverhamptonplumber.co.uk/emergency-plumber-wolverhampton",
+    url: "https://wolverhamptonplumber.co.uk/leak-repair-wolverhampton",
     description:
-      "Urgent plumbing enquiry page for Wolverhampton, including leaks, blocked toilets, blocked drains, tap repairs and burst pipe concerns.",
+      "Leak repair Wolverhampton enquiry page for leaking pipes, under-sink leaks, bathroom leaks, kitchen leaks, tap leaks and urgent water leak concerns.",
   };
 
   const faqSchema = {
@@ -144,18 +160,18 @@ export default function EmergencyPlumberWolverhamptonPage() {
             <div className={styles.heroGrid}>
               <div className={styles.heroText}>
                 <div className={styles.badge}>
-                  Available for Wolverhampton enquiries
+                  Leak repair enquiries in Wolverhampton
                 </div>
 
                 <h1>
-                  Emergency Plumber
+                  Leak Repair
                   <span> Wolverhampton</span>
                 </h1>
 
                 <p>
-                  Need urgent plumbing help in Wolverhampton? Send a WhatsApp
-                  enquiry for leaks, blocked toilets, blocked drains, tap
-                  repairs, bathroom plumbing and burst pipe concerns.
+                  Need help with a leaking pipe, under-sink leak, bathroom leak,
+                  kitchen leak or tap leak in Wolverhampton? Send a WhatsApp
+                  enquiry with your area, issue and urgency.
                 </p>
 
                 <div className={styles.heroActions}>
@@ -168,35 +184,34 @@ export default function EmergencyPlumberWolverhamptonPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    WhatsApp Now
+                    WhatsApp Leak Enquiry
                   </a>
                 </div>
 
                 <div className={styles.microTrust}>
-                  <span>WhatsApp enquiry flow</span>
+                  <span>Leak enquiry flow</span>
                   <span>WV postcode focused</span>
                   <span>Clear safety guidance</span>
                 </div>
 
                 <small>
-                  This website helps organise local plumbing enquiries. Response
-                  depends on availability, timing and the details of the
-                  enquiry. Gas work must be handled by a Gas Safe registered
-                  engineer.
+                  This website helps collect clear plumbing enquiry details
+                  before any next step. Response depends on availability, timing
+                  and the details of the enquiry.
                 </small>
               </div>
 
               <aside className={styles.visualCard}>
                 <div className={styles.visualHeader}>
-                  <span>Urgent enquiry</span>
+                  <span>Leak enquiry</span>
                   <strong>Wolverhampton</strong>
                 </div>
 
                 <div className={styles.requestCard}>
                   <div className={styles.requestIcon}>✓</div>
 
-                  <p>WhatsApp plumbing enquiry</p>
-                  <h2>Send your issue clearly</h2>
+                  <p>WhatsApp leak enquiry</p>
+                  <h2>Send the leak details clearly</h2>
 
                   <div className={styles.requestRows}>
                     <div>
@@ -205,7 +220,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
                     </div>
                     <div>
                       <span>Issue</span>
-                      <strong>Leak, blocked toilet or drain</strong>
+                      <strong>Pipe, sink, bathroom or tap leak</strong>
                     </div>
                     <div>
                       <span>Urgency</span>
@@ -217,7 +232,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
                 <div className={styles.visualBottom}>
                   <div>
                     <span>Message format</span>
-                    <strong>Area + Issue + Urgency</strong>
+                    <strong>Area + Leak + Urgency</strong>
                   </div>
                   <div>
                     <span>Sent by</span>
@@ -229,20 +244,20 @@ export default function EmergencyPlumberWolverhamptonPage() {
 
             <div className={styles.heroStats}>
               <div>
+                <strong>Leaking pipes</strong>
+                <span>visible pipework</span>
+              </div>
+              <div>
+                <strong>Under-sink leaks</strong>
+                <span>kitchen & bathroom</span>
+              </div>
+              <div>
+                <strong>Tap leaks</strong>
+                <span>drips and fittings</span>
+              </div>
+              <div>
                 <strong>Wolverhampton</strong>
-                <span>local enquiry focus</span>
-              </div>
-              <div>
-                <strong>WhatsApp</strong>
-                <span>fast message flow</span>
-              </div>
-              <div>
-                <strong>Leaks</strong>
-                <span>pipes, taps, sinks</span>
-              </div>
-              <div>
-                <strong>Blocked toilets</strong>
-                <span>urgent enquiries</span>
+                <span>WV area focused</span>
               </div>
             </div>
           </div>
@@ -251,14 +266,15 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.servicesSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>What people search for</div>
+              <div className={styles.badge}>Leak search intent</div>
               <h2>
-                Urgent plumbing enquiries,
+                Leak repair enquiries,
                 <span> clearly organised.</span>
               </h2>
               <p>
-                The page is built around the main Wolverhampton plumbing issues
-                people search for when they need help quickly.
+                This page targets Wolverhampton users searching for leaking
+                pipes, water leaks, under-sink leaks, bathroom leaks and urgent
+                leak help.
               </p>
             </div>
 
@@ -285,40 +301,41 @@ export default function EmergencyPlumberWolverhamptonPage() {
               <div>
                 <div className={styles.badge}>Clear local enquiry process</div>
                 <h2>
-                  A Wolverhampton plumbing enquiry page.
+                  A Wolverhampton leak repair enquiry page.
                   <span> Built for fast WhatsApp contact.</span>
                 </h2>
+
                 <p>
-                  This site is designed to collect clear plumbing enquiries from
-                  Wolverhampton users and route them through WhatsApp. The goal
-                  is simple: area, issue, urgency and useful details in one
-                  message.
+                  The enquiry flow helps the visitor send the key details:
+                  Wolverhampton area, where the leak is, how urgent it feels and
+                  any visible signs such as dripping, water marks or pooling
+                  water.
                 </p>
 
                 <div className={styles.trustList}>
                   <div>
-                    <strong>Clear enquiry flow</strong>
+                    <strong>Clear leak type</strong>
                     <span>
-                      No confusing long form. The user sends a WhatsApp message.
+                      Pipe leak, sink leak, bathroom leak, kitchen leak or tap
+                      leak.
                     </span>
                   </div>
                   <div>
-                    <strong>Local wording</strong>
+                    <strong>Useful location detail</strong>
                     <span>
-                      Focused on Wolverhampton, WV postcodes and nearby areas.
+                      Room, fixture, Wolverhampton area and WV postcode if
+                      available.
                     </span>
                   </div>
                   <div>
-                    <strong>Safe claims</strong>
-                    <span>
-                      Clear wording, safety notes, and no confusing claims.
-                    </span>
+                    <strong>Simple WhatsApp route</strong>
+                    <span>The message opens ready to edit before sending.</span>
                   </div>
                   <div>
-                    <strong>Easy to monetise later</strong>
+                    <strong>Safety-first guidance</strong>
                     <span>
-                      Once leads come in, they can be routed to a real local
-                      partner.
+                      If safe, turn off the internal stop tap and avoid
+                      electrical danger.
                     </span>
                   </div>
                 </div>
@@ -335,15 +352,15 @@ export default function EmergencyPlumberWolverhamptonPage() {
                   </div>
                   <div>
                     <span>Issue</span>
-                    <strong>Leak / blocked toilet / blocked drain</strong>
+                    <strong>Leaking pipe / sink / tap</strong>
                   </div>
                   <div>
                     <span>Urgency</span>
                     <strong>Today / 24–48 hours / flexible</strong>
                   </div>
                   <div>
-                    <span>Channel</span>
-                    <strong>WhatsApp message</strong>
+                    <span>Details</span>
+                    <strong>Photos if useful</strong>
                   </div>
                 </div>
 
@@ -358,14 +375,14 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.areaSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Service area signals</div>
+              <div className={styles.badge}>Local relevance</div>
               <h2>
-                Emergency plumbing enquiries across
+                Leak repair enquiries across
                 <span> Wolverhampton.</span>
               </h2>
               <p>
-                Wolverhampton location signals help Google understand the page
-                is relevant to local plumbing searches, not generic UK traffic.
+                The page includes Wolverhampton areas and WV postcode signals to
+                support local relevance for leak repair and plumber searches.
               </p>
             </div>
 
@@ -382,7 +399,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
             <div className={styles.sectionHeader}>
               <div className={styles.badge}>Questions</div>
               <h2>
-                Emergency plumber
+                Leak repair
                 <span> Wolverhampton FAQs.</span>
               </h2>
             </div>
@@ -401,9 +418,9 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.finalCta}>
           <div className={styles.container}>
             <div className={styles.finalBox}>
-              <h2>Need urgent plumbing help in Wolverhampton?</h2>
+              <h2>Need help with a leak in Wolverhampton?</h2>
               <p>
-                Start with a WhatsApp enquiry. Choose your issue, area and
+                Start with a WhatsApp enquiry. Add your area, leak type and
                 urgency, then send the pre-filled message.
               </p>
 
@@ -417,7 +434,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  WhatsApp Now
+                  WhatsApp Leak Enquiry
                 </a>
               </div>
             </div>

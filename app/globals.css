@@ -887,3 +887,831 @@ p {
 .formSuccess p {
   margin-bottom: 0;
 }
+/* Emergency plumber Wolverhampton page */
+
+.emergencyLanding {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(253, 185, 19, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #fffaf0 0%, #ffffff 38%, #f7f7f7 100%);
+  color: #111111;
+}
+
+.emergencyHero {
+  padding: 86px 0 70px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.emergencyHeroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) 420px;
+  gap: 46px;
+  align-items: center;
+}
+
+.emergencyHeroContent {
+  max-width: 760px;
+}
+
+.emergencyKicker {
+  margin: 0 0 12px;
+  color: #b78000;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.emergencyHero h1 {
+  margin: 0;
+  max-width: 760px;
+  color: #111111;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  font-weight: 950;
+}
+
+.emergencyIntro {
+  margin: 24px 0 0;
+  max-width: 690px;
+  color: #444444;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.65;
+  font-weight: 650;
+}
+
+.emergencyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.emergencyBtn {
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 950;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.emergencyBtn:hover {
+  transform: translateY(-2px);
+}
+
+.primaryEmergencyBtn {
+  background: #111111;
+  color: #fdb913;
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.22);
+}
+
+.secondaryEmergencyBtn {
+  background: #25d366;
+  color: #111111;
+  box-shadow: 0 18px 40px rgba(37, 211, 102, 0.24);
+}
+
+.emergencyTrustRow {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.emergencyTrustRow span {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  color: #222222;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.emergencyDisclaimer {
+  margin: 18px 0 0;
+  max-width: 690px;
+  color: #666666;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.emergencyHeroPanel {
+  position: relative;
+  padding: 28px;
+  border-radius: 26px;
+  background: #111111;
+  color: #ffffff;
+  box-shadow: 0 30px 80px rgba(17, 17, 17, 0.28);
+  overflow: hidden;
+}
+
+.panelTopLine {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: #fdb913;
+}
+
+.emergencyHeroPanel h2 {
+  margin: 0 0 22px;
+  font-size: 27px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.quickIssueList {
+  display: grid;
+  gap: 14px;
+}
+
+.quickIssueList div {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.quickIssueList strong {
+  display: block;
+  color: #fdb913;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.quickIssueList span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.emergencySection {
+  padding: 76px 0;
+}
+
+.emergencySectionHeader {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.emergencySectionHeader h2,
+.emergencySplit h2,
+.finalCtaBox h2 {
+  margin: 0;
+  color: #111111;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 950;
+}
+
+.emergencySectionHeader p,
+.emergencySplit p,
+.finalCtaBox p {
+  color: #4e4e4e;
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+.emergencyCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.emergencyServiceCard {
+  padding: 24px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.07);
+}
+
+.cardIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #fdb913;
+  color: #111111;
+  font-weight: 950;
+  margin-bottom: 18px;
+}
+
+.emergencyServiceCard h3 {
+  margin: 0;
+  color: #111111;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.emergencyServiceCard p {
+  margin: 12px 0 0;
+  color: #5f5f5f;
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 550;
+}
+
+.emergencyDarkSection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.emergencyDarkSection .emergencyKicker {
+  color: #fdb913;
+}
+
+.emergencyDarkSection h2 {
+  color: #ffffff;
+}
+
+.emergencyDarkSection p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.emergencySplit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 36px;
+  align-items: start;
+}
+
+.stepsGrid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stepsGrid div {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.stepsGrid span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: #fdb913;
+  font-weight: 950;
+  font-size: 13px;
+}
+
+.stepsGrid strong {
+  display: block;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.stepsGrid p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.safetyBox {
+  padding: 26px;
+  border-radius: 26px;
+  background: #fdb913;
+  color: #111111;
+  box-shadow: 0 24px 70px rgba(253, 185, 19, 0.22);
+}
+
+.safetyBox h3 {
+  margin: 0 0 12px;
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.safetyBox p {
+  color: #211b0a;
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+.emergencyAreaPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.emergencyAreaPills span {
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.09);
+  box-shadow: 0 12px 30px rgba(17, 17, 17, 0.055);
+  color: #222222;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.emergencyFaqSection {
+  background: #fff8e4;
+}
+
+.emergencyFaqList {
+  display: grid;
+  gap: 14px;
+  max-width: 900px;
+}
+
+.emergencyFaqItem {
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 14px 40px rgba(17, 17, 17, 0.055);
+}
+
+.emergencyFaqItem summary {
+  cursor: pointer;
+  color: #111111;
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.emergencyFaqItem p {
+  margin: 12px 0 0;
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 550;
+}
+
+.emergencyFinalCta {
+  padding: 80px 0 96px;
+  background:
+    radial-gradient(
+      circle at bottom right,
+      rgba(253, 185, 19, 0.32),
+      transparent 32%
+    ),
+    #ffffff;
+}
+
+.finalCtaBox {
+  padding: clamp(28px, 5vw, 54px);
+  border-radius: 34px;
+  background: #111111;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(17, 17, 17, 0.24);
+}
+
+.finalCtaBox h2 {
+  color: #ffffff;
+}
+
+.finalCtaBox p {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.centerEmergencyActions {
+  justify-content: center;
+}
+
+@media (max-width: 980px) {
+  .emergencyHeroGrid,
+  .emergencySplit {
+    grid-template-columns: 1fr;
+  }
+
+  .emergencyHeroPanel {
+    max-width: 620px;
+  }
+
+  .emergencyCardsGrid,
+  .stepsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .emergencyHero {
+    padding: 52px 0 46px;
+  }
+
+  .emergencyHero h1 {
+    font-size: clamp(40px, 13vw, 56px);
+    letter-spacing: -0.06em;
+  }
+
+  .emergencyIntro {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .emergencyActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .emergencyBtn {
+    width: 100%;
+    min-height: 56px;
+  }
+
+  .emergencyTrustRow {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .emergencyHeroPanel {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .emergencySection {
+    padding: 54px 0;
+  }
+
+  .emergencyCardsGrid,
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .emergencySectionHeader h2,
+  .emergencySplit h2,
+  .finalCtaBox h2 {
+    font-size: 34px;
+  }
+
+  .emergencySectionHeader p,
+  .emergencySplit p,
+  .finalCtaBox p {
+    font-size: 16px;
+  }
+
+  .finalCtaBox {
+    border-radius: 26px;
+  }
+}
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.headerInner {
+  width: min(1180px, calc(100% - 36px));
+  min-height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logoImage {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.logoImage img {
+  width: 218px;
+  height: auto;
+  display: block;
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.mainNav > a,
+.navDropdown > summary {
+  min-height: 42px;
+  padding: 0 13px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  color: #171717;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.mainNav > a:hover,
+.navDropdown > summary:hover {
+  background: #fff4cf;
+  color: #111111;
+}
+
+.navCta {
+  background: #111111 !important;
+  color: #fdb913 !important;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.16);
+}
+
+.navDropdown {
+  position: relative;
+}
+
+.navDropdown summary {
+  list-style: none;
+}
+
+.navDropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.navDropdown summary::after {
+  content: "▾";
+  margin-left: 7px;
+  font-size: 10px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 270px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.16);
+  display: grid;
+  gap: 4px;
+}
+
+.dropdownMenu a {
+  padding: 12px 13px;
+  border-radius: 14px;
+  color: #222222;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.dropdownMenu a:hover {
+  background: #fff4cf;
+}
+
+.siteFooter {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(253, 185, 19, 0.2),
+      transparent 30%
+    ),
+    #111111;
+  color: #ffffff;
+}
+
+.footerInner {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 68px 0 42px;
+  display: grid;
+  grid-template-columns: 1.05fr 1.7fr;
+  gap: 54px;
+}
+
+.footerLogo {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 950;
+}
+
+.footerLogo span {
+  color: #fdb913;
+}
+
+.footerBrand p {
+  margin: 18px 0 0;
+  max-width: 470px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 560;
+}
+
+.footerActions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footerActions a {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.footerActions a:first-child {
+  background: #fdb913;
+  color: #111111;
+}
+
+.footerActions a:last-child {
+  background: #25d366;
+  color: #07150c;
+}
+
+.footerColumns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.footerColumns h3 {
+  margin: 0 0 14px;
+  color: #fdb913;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 950;
+}
+
+.footerColumns a {
+  margin-top: 10px;
+  display: block;
+  color: rgba(255, 255, 255, 0.76);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.footerColumns a:hover {
+  color: #fdb913;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerBottom p {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 18px 0 24px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.mobileBottomActions {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .headerInner {
+    min-height: auto;
+    padding: 14px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mainNav {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .mainNav::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .navDropdown {
+    position: static;
+  }
+
+  .dropdownMenu {
+    left: 18px;
+    right: 18px;
+    width: auto;
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr;
+  }
+
+  .footerColumns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 86px;
+  }
+
+  .headerInner {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .logoImage img {
+    width: 190px;
+  }
+
+  .mainNav > a,
+  .navDropdown > summary {
+    min-height: 38px;
+    padding: 0 11px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .dropdownMenu {
+    top: 112px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .footerInner {
+    width: min(100% - 28px, 1180px);
+    padding: 52px 0 34px;
+  }
+
+  .footerColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .footerBottom p {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .mobileBottomActions {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mobileBottomActions a {
+    min-height: 54px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 950;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .mobileFormAction {
+    background: #111111;
+    color: #fdb913;
+  }
+
+  .mobileWhatsAppAction {
+    background: #25d366;
+    color: #111111;
+  }
+}

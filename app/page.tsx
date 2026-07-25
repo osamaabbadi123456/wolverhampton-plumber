@@ -1,383 +1,501 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import styles from "./emergency-plumber-wolverhampton/EmergencyPage.module.css";
 
-export default function Home() {
-  const localBusinessSchema = {
+const whatsappLink =
+  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20plumbing%20help%20in%20Wolverhampton.";
+
+export const metadata: Metadata = {
+  title: "Wolverhampton Plumber | Local Plumbing Enquiries & Help",
+  description:
+    "Need a plumber in Wolverhampton? Send a WhatsApp enquiry for leaks, blocked toilets, blocked drains, tap repairs, bathroom plumbing, heating pipework and urgent plumbing issues.",
+  keywords: [
+    "Wolverhampton plumber",
+    "plumber Wolverhampton",
+    "plumbers in Wolverhampton",
+    "local plumber Wolverhampton",
+    "emergency plumber Wolverhampton",
+    "blocked drains Wolverhampton",
+    "blocked toilet Wolverhampton",
+    "tap repair Wolverhampton",
+    "leak repair Wolverhampton",
+    "bathroom plumber Wolverhampton",
+    "heating plumber Wolverhampton",
+    "plumbing help Wolverhampton",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Wolverhampton Plumber | Local Plumbing Enquiries & Help",
+    description:
+      "Send a WhatsApp plumbing enquiry in Wolverhampton for leaks, blocked toilets, blocked drains, tap repairs, bathroom plumbing and urgent plumbing issues.",
+    url: "https://wolverhamptonplumber.co.uk",
+    type: "website",
+    locale: "en_GB",
+  },
+};
+
+const services = [
+  {
+    title: "Emergency Plumbing",
+    text: "Send urgent Wolverhampton plumbing enquiries for leaks, burst pipe concerns, blocked toilets and sudden water problems.",
+    points: [
+      "Urgent plumbing issues",
+      "Leaks & pipe concerns",
+      "Blocked toilets",
+    ],
+  },
+  {
+    title: "Blocked Drains",
+    text: "For blocked drains, slow draining water, blocked sinks, bathroom waste and outside drain concerns.",
+    points: ["Blocked drains", "Blocked sinks", "Slow draining water"],
+  },
+  {
+    title: "Blocked Toilets",
+    text: "Send enquiries for toilet blockages, rising water, repeated flushing problems and urgent bathroom plumbing issues.",
+    points: ["Toilet blockage", "Rising water", "Bathroom waste issues"],
+  },
+  {
+    title: "Leaks & Pipework",
+    text: "For leaking pipework, under-sink leaks, bathroom leaks, kitchen leaks and visible water problems.",
+    points: ["Pipework leaks", "Under-sink leaks", "Bathroom leaks"],
+  },
+  {
+    title: "Tap Repairs",
+    text: "For dripping taps, broken taps, leaking taps, low water flow and general tap plumbing concerns.",
+    points: ["Dripping taps", "Leaking taps", "Broken taps"],
+  },
+  {
+    title: "Bathroom Plumbing",
+    text: "For toilet, basin, bath, shower and bathroom pipework enquiries across Wolverhampton homes.",
+    points: ["Toilets", "Showers", "Basins & baths"],
+  },
+];
+
+const areas = [
+  "Wolverhampton",
+  "Bilston",
+  "Wednesfield",
+  "Tettenhall",
+  "Penn",
+  "Bushbury",
+  "Compton",
+  "Whitmore Reans",
+  "Willenhall",
+  "Sedgley",
+  "Codsall",
+  "WV1",
+  "WV2",
+  "WV3",
+  "WV4",
+  "WV6",
+  "WV10",
+  "WV11",
+  "WV14",
+];
+
+const faqs = [
+  {
+    q: "How do I send a Wolverhampton plumber enquiry?",
+    a: "Use the WhatsApp enquiry page, choose your plumbing issue, add your Wolverhampton area and urgency, then send the pre-filled message.",
+  },
+  {
+    q: "What plumbing issues can I send?",
+    a: "You can send enquiries for leaks, blocked toilets, blocked drains, blocked sinks, tap repairs, bathroom plumbing, kitchen plumbing and heating pipework concerns.",
+  },
+  {
+    q: "Is this a plumbing company?",
+    a: "This website helps organise local plumbing enquiries in Wolverhampton. It is designed to help visitors send clear plumbing enquiry details by WhatsApp.",
+  },
+  {
+    q: "Is attendance guaranteed?",
+    a: "No. Response depends on availability, timing and the details of the enquiry. The site helps collect and organise enquiries so they can be understood clearly.",
+  },
+  {
+    q: "What about gas or boiler work?",
+    a: "Gas work and gas boiler work must be handled by a Gas Safe registered engineer. If you smell gas or suspect a gas leak, follow official emergency guidance immediately.",
+  },
+];
+
+export default function HomePage() {
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "WebSite",
     name: "Wolverhampton Plumber",
     url: "https://wolverhamptonplumber.co.uk",
-    email: "info@wolverhamptonplumber.co.uk",
-    areaServed: [
-      "Wolverhampton",
-      "Bilston",
-      "Wednesfield",
-      "Tettenhall",
-      "Penn",
-      "Bushbury",
-      "Compton",
-      "Whitmore Reans",
-      "Willenhall",
-      "Sedgley",
-      "Codsall",
-    ],
+    inLanguage: "en-GB",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Wolverhampton Plumber",
+    url: "https://wolverhamptonplumber.co.uk",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "plumbing enquiry",
+      telephone: "+447405955956",
+      areaServed: "Wolverhampton",
+      availableLanguage: "English",
+    },
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Wolverhampton Plumber Enquiries",
+    serviceType: "Local plumbing enquiries",
+    areaServed: {
+      "@type": "City",
+      name: "Wolverhampton",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Wolverhampton Plumber",
+      url: "https://wolverhamptonplumber.co.uk",
+    },
+    url: "https://wolverhamptonplumber.co.uk",
     description:
-      "A Wolverhampton-focused plumbing enquiry website helping local residents submit plumbing enquiries for leaks, blocked toilets, tap repairs, bathroom plumbing, heating plumbing and general plumbing help.",
-    sameAs: [],
-    makesOffer: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Plumbing Enquiries Wolverhampton",
-          serviceType: "Plumbing enquiry service",
-          areaServed: "Wolverhampton",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Emergency Plumbing Enquiries Wolverhampton",
-          serviceType: "Emergency plumbing enquiries",
-          areaServed: "Wolverhampton",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Blocked Drains Wolverhampton",
-          serviceType: "Blocked drain and toilet enquiries",
-          areaServed: "Wolverhampton",
-        },
-      },
-    ],
+      "Local plumbing enquiry website for Wolverhampton, including leaks, blocked toilets, blocked drains, tap repairs, bathroom plumbing and urgent plumbing issues.",
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Can I request plumbing help in Wolverhampton through this site?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. You can submit a plumbing enquiry for Wolverhampton and nearby areas. The site helps organise local plumbing enquiries and may connect them with available local help where possible.",
-        },
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
       },
-      {
-        "@type": "Question",
-        name: "Is Wolverhampton Plumber a plumbing company?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Wolverhampton Plumber is a local plumbing enquiry website. It does not claim to directly carry out plumbing work or guarantee attendance.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What plumbing issues can I submit?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can submit enquiries for leaks, blocked toilets, blocked sinks, tap repairs, shower issues, bathroom plumbing, kitchen plumbing, water pressure problems and heating plumbing concerns.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Which areas are covered?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The site focuses on Wolverhampton and nearby areas including Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Compton, Whitmore Reans, Willenhall, Sedgley and Codsall.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you guarantee emergency response times?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. This is an enquiry website and cannot guarantee emergency attendance or response times.",
-        },
-      },
-    ],
+    })),
   };
 
   return (
-    <main>
+    <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="hero">
-        <div className="container heroGrid">
-          <div>
-            <p className="eyebrow">Wolverhampton Plumbing Enquiries</p>
+      <main className={styles.page}>
+        <section className={styles.hero}>
+          <div className={styles.container}>
+            <div className={styles.heroGrid}>
+              <div className={styles.heroText}>
+                <div className={styles.badge}>
+                  Wolverhampton plumbing enquiries
+                </div>
 
-            <h1>Find Local Plumbing Help in Wolverhampton</h1>
+                <h1>
+                  Wolverhampton
+                  <span> Plumber</span>
+                </h1>
 
-            <p className="heroText">
-              Need help with a leak, blocked toilet, tap repair, shower issue,
-              bathroom plumbing or another plumbing problem in Wolverhampton?
-              Submit your enquiry and we’ll try to connect you with available
-              local plumbing help.
-            </p>
+                <p>
+                  Need plumbing help in Wolverhampton? Send a WhatsApp enquiry
+                  for leaks, blocked toilets, blocked drains, tap repairs,
+                  bathroom plumbing, kitchen plumbing and urgent plumbing issues
+                  across Wolverhampton.
+                </p>
 
-            <div className="heroButtons">
-              <Link href="/contact" className="btn primary">
-                Send Plumbing Enquiry
-              </Link>
+                <div className={styles.heroActions}>
+                  <Link href="/contact" className={styles.primaryBtn}>
+                    Start WhatsApp Enquiry
+                  </Link>
 
-              <a
-                href="https://wa.me/447448632279?text=Hi%2C%20I%20need%20plumbing%20help%20in%20Wolverhampton."
-                className="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp Enquiry
-              </a>
+                  <a
+                    href={whatsappLink}
+                    className={styles.secondaryBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp Plumbing Enquiry
+                  </a>
+                </div>
 
-              <a
-                href="mailto:info@wolverhamptonplumber.co.uk"
-                className="btn secondary"
-              >
-                Email Your Enquiry
-              </a>
+                <div className={styles.microTrust}>
+                  <span>Local Wolverhampton focus</span>
+                  <span>WhatsApp enquiry flow</span>
+                  <span>WV postcode signals</span>
+                </div>
+
+                <small>
+                  This website helps organise local plumbing enquiries in
+                  Wolverhampton. Response depends on availability, timing and
+                  the details of the enquiry. Gas work must be handled by a Gas
+                  Safe registered engineer.
+                </small>
+              </div>
+
+              <aside className={styles.visualCard}>
+                <div className={styles.visualHeader}>
+                  <span>Plumbing enquiry</span>
+                  <strong>Wolverhampton</strong>
+                </div>
+
+                <div className={styles.requestCard}>
+                  <div className={styles.requestIcon}>✓</div>
+
+                  <p>WhatsApp plumbing enquiry</p>
+                  <h2>Send your plumbing issue clearly</h2>
+
+                  <div className={styles.requestRows}>
+                    <div>
+                      <span>Area</span>
+                      <strong>Bilston / WV1 / Wednesfield</strong>
+                    </div>
+                    <div>
+                      <span>Issue</span>
+                      <strong>Leak, blocked toilet or drain</strong>
+                    </div>
+                    <div>
+                      <span>Urgency</span>
+                      <strong>Today / 24–48 hours / flexible</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.visualBottom}>
+                  <div>
+                    <span>Message format</span>
+                    <strong>Area + Issue + Urgency</strong>
+                  </div>
+                  <div>
+                    <span>Sent by</span>
+                    <strong>WhatsApp</strong>
+                  </div>
+                </div>
+              </aside>
             </div>
-            <p className="safeNote">
-              We are a local plumbing enquiry website, not an emergency service.
-              For dangerous gas issues, contact a Gas Safe registered engineer.
-            </p>
+
+            <div className={styles.heroStats}>
+              <div>
+                <strong>Wolverhampton</strong>
+                <span>local plumber intent</span>
+              </div>
+              <div>
+                <strong>Emergency</strong>
+                <span>urgent enquiries</span>
+              </div>
+              <div>
+                <strong>Blocked drains</strong>
+                <span>toilets, sinks, drains</span>
+              </div>
+              <div>
+                <strong>Leaks & taps</strong>
+                <span>common plumbing issues</span>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="heroCard">
-            <h2>Common Plumbing Enquiries</h2>
-
-            <ul>
-              <li>Leaking pipes</li>
-              <li>Blocked toilets and sinks</li>
-              <li>Tap repairs and replacements</li>
-              <li>Shower and bathroom plumbing</li>
-              <li>Kitchen plumbing issues</li>
-              <li>Water pressure problems</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">Services</p>
-          <h2>Plumbing Help Across Wolverhampton</h2>
-
-          <div className="cards">
-            <div className="card">
-              <h3>Emergency Plumbing Enquiries</h3>
+        <section className={styles.servicesSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Popular plumbing enquiries</div>
+              <h2>
+                Local plumbing help in Wolverhampton,
+                <span> organised by issue.</span>
+              </h2>
               <p>
-                For urgent leaks, burst pipe concerns, overflowing toilets and
-                plumbing issues that need attention quickly.
-              </p>
-              <Link href="/emergency-plumber-wolverhampton">Learn more</Link>
-            </div>
-
-            <div className="card">
-              <h3>Blocked Drains & Toilets</h3>
-              <p>
-                Help with blocked toilets, slow draining sinks, bad smells,
-                outside drains and general drainage problems.
-              </p>
-              <Link href="/blocked-drains-wolverhampton">Learn more</Link>
-            </div>
-
-            <div className="card">
-              <h3>Boiler & Heating Plumbing Help</h3>
-              <p>
-                Get guidance for heating and boiler-related plumbing issues. Gas
-                work should always be handled by a Gas Safe registered engineer.
-              </p>
-              <Link href="/boiler-heating-plumber-wolverhampton">
-                Learn more
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section light">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">Areas Covered</p>
-            <h2>Local Wolverhampton Areas</h2>
-
-            <p>
-              This site focuses on plumbing enquiries across Wolverhampton and
-              nearby areas including Bilston, Wednesfield, Tettenhall, Penn,
-              Bushbury, Compton, Whitmore Reans, Codsall, Willenhall and
-              Sedgley.
-            </p>
-
-            <Link href="/areas-covered" className="textLink">
-              View all areas covered
-            </Link>
-          </div>
-
-          <div className="areaBox">
-            <span>Bilston</span>
-            <span>Wednesfield</span>
-            <span>Tettenhall</span>
-            <span>Penn</span>
-            <span>Bushbury</span>
-            <span>Compton</span>
-            <span>Willenhall</span>
-            <span>Sedgley</span>
-          </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">Local Plumbing Help</p>
-
-            <h2>
-              Plumber Wolverhampton Enquiries for Common Home Plumbing Issues
-            </h2>
-
-            <p>
-              Wolverhampton homes can experience a wide range of plumbing
-              problems, from leaking pipes and blocked toilets to tap repairs,
-              shower faults, bathroom plumbing issues, kitchen plumbing concerns
-              and heating-related pipework problems.
-            </p>
-
-            <p>
-              This website is designed to make plumbing enquiries clearer for
-              local Wolverhampton residents. Instead of only sending a short
-              message, you can include your area, the issue, urgency, photos if
-              useful and your preferred contact method.
-            </p>
-
-            <Link href="/contact" className="textLink">
-              Submit a Wolverhampton plumbing enquiry
-            </Link>
-          </div>
-
-          <div className="localSeoBox">
-            <h3>Popular Wolverhampton Enquiries</h3>
-
-            <div className="seoPills">
-              <span>Plumber Wolverhampton</span>
-              <span>Emergency plumbing enquiries</span>
-              <span>Blocked toilets</span>
-              <span>Blocked drains</span>
-              <span>Leaking pipes</span>
-              <span>Tap repairs</span>
-              <span>Bathroom plumbing</span>
-              <span>Heating plumbing</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">How It Works</p>
-          <h2>Send Your Plumbing Enquiry</h2>
-
-          <div className="steps">
-            <div>
-              <strong>1</strong>
-              <h3>Tell us the issue</h3>
-              <p>
-                Leak, blocked toilet, tap repair, shower problem or another
-                plumbing job.
+                The site is built around the main plumbing searches people make
+                when they need help quickly in Wolverhampton and nearby WV
+                areas.
               </p>
             </div>
 
-            <div>
-              <strong>2</strong>
-              <h3>Share your area</h3>
-              <p>Let us know where you are in or around Wolverhampton.</p>
+            <div className={styles.cardsGrid}>
+              {services.map((service) => (
+                <article className={styles.serviceCard} key={service.title}>
+                  <div className={styles.serviceIcon}>✓</div>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  <ul>
+                    {service.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
+          </div>
+        </section>
 
-            <div>
-              <strong>3</strong>
-              <h3>We try to connect you</h3>
+        <section className={styles.trustSection}>
+          <div className={styles.container}>
+            <div className={styles.trustGrid}>
+              <div>
+                <div className={styles.badge}>Clear local enquiry process</div>
+
+                <h2>
+                  A Wolverhampton plumbing enquiry page.
+                  <span> Built for fast WhatsApp contact.</span>
+                </h2>
+
+                <p>
+                  Instead of a long form, the enquiry flow helps visitors send
+                  the key details in one clear WhatsApp message: area, plumbing
+                  issue, urgency and extra notes.
+                </p>
+
+                <div className={styles.trustList}>
+                  <div>
+                    <strong>Clear issue type</strong>
+                    <span>
+                      Leaks, blocked toilets, blocked drains, tap repairs and
+                      bathroom plumbing.
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong>Local area detail</strong>
+                    <span>
+                      Focused on Wolverhampton, WV postcodes and nearby areas.
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong>Simple WhatsApp route</strong>
+                    <span>
+                      The message opens ready to edit before the visitor sends
+                      it.
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong>Safety-first wording</strong>
+                    <span>
+                      Gas work must be handled by a Gas Safe registered
+                      engineer.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.enquiryBox}>
+                <div className={styles.checkCircle}>✓</div>
+                <h3>What the visitor sends</h3>
+
+                <div className={styles.enquiryRows}>
+                  <div>
+                    <span>Area</span>
+                    <strong>Bilston / WV1 / Wednesfield</strong>
+                  </div>
+                  <div>
+                    <span>Issue</span>
+                    <strong>Leak / drain / toilet / tap</strong>
+                  </div>
+                  <div>
+                    <span>Urgency</span>
+                    <strong>Today / 24–48 hours / flexible</strong>
+                  </div>
+                  <div>
+                    <span>Channel</span>
+                    <strong>WhatsApp message</strong>
+                  </div>
+                </div>
+
+                <Link href="/contact" className={styles.fullBtn}>
+                  Open Enquiry Page
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.areaSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Wolverhampton area coverage</div>
+
+              <h2>
+                Plumber enquiries across
+                <span> Wolverhampton.</span>
+              </h2>
+
               <p>
-                We’ll try to connect your enquiry with available local plumbing
-                help.
+                Local area and WV postcode wording helps Google understand that
+                this site is focused on Wolverhampton plumbing searches.
               </p>
             </div>
-          </div>
 
-          <div className="center">
-            <Link href="/contact" className="btn primary">
-              Submit an Enquiry
-            </Link>
+            <div className={styles.areaPills}>
+              {areas.map((area) => (
+                <span key={area}>{area}</span>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section light">
-        <div className="container faq">
-          <p className="eyebrow">FAQ</p>
-          <h2>Wolverhampton Plumber FAQs</h2>
+        <section className={styles.faqSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Questions</div>
 
-          <div className="faqItem">
-            <h3>
-              Can I request plumbing help in Wolverhampton through this site?
-            </h3>
-            <p>
-              Yes. You can submit a plumbing enquiry for Wolverhampton and
-              nearby areas. The site helps organise local plumbing enquiries and
-              may connect them with available local help where possible.
-            </p>
+              <h2>
+                Wolverhampton plumber
+                <span> FAQs.</span>
+              </h2>
+            </div>
+
+            <div className={styles.faqGrid}>
+              {faqs.map((item) => (
+                <details className={styles.faqItem} key={item.q}>
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="faqItem">
-            <h3>Is Wolverhampton Plumber a plumbing company?</h3>
-            <p>
-              Wolverhampton Plumber is a local plumbing enquiry website. It does
-              not claim to directly carry out plumbing work or guarantee
-              attendance.
-            </p>
-          </div>
+        <section className={styles.finalCta}>
+          <div className={styles.container}>
+            <div className={styles.finalBox}>
+              <h2>Need a plumber in Wolverhampton?</h2>
 
-          <div className="faqItem">
-            <h3>What plumbing issues can I submit?</h3>
-            <p>
-              You can submit enquiries for leaks, blocked toilets, blocked
-              sinks, tap repairs, shower issues, bathroom plumbing, kitchen
-              plumbing, water pressure problems and heating plumbing concerns.
-            </p>
-          </div>
+              <p>
+                Start with a WhatsApp enquiry. Choose your issue, area and
+                urgency, then send the pre-filled message.
+              </p>
 
-          <div className="faqItem">
-            <h3>Which areas are covered?</h3>
-            <p>
-              The site focuses on Wolverhampton and nearby areas including
-              Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Compton,
-              Whitmore Reans, Willenhall, Sedgley and Codsall.
-            </p>
-          </div>
+              <div className={styles.heroActionsCenter}>
+                <Link href="/contact" className={styles.primaryBtn}>
+                  Start WhatsApp Enquiry
+                </Link>
 
-          <div className="faqItem">
-            <h3>Do you guarantee emergency response times?</h3>
-            <p>
-              No. This is an enquiry website and cannot guarantee emergency
-              attendance or response times.
-            </p>
+                <a
+                  href={whatsappLink}
+                  className={styles.secondaryBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp Plumbing Enquiry
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }

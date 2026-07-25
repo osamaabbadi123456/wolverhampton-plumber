@@ -1,129 +1,169 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useForm, ValidationError } from "@formspree/react";
+import { FormEvent, useMemo, useState } from "react";
+import styles from "./ContactPage.module.css";
+
+const WHATSAPP_NUMBER = "447405955956";
+
+const issueOptions = [
+  "Emergency plumbing enquiry",
+  "Leak or burst pipe concern",
+  "Blocked toilet",
+  "Blocked sink or drain",
+  "Tap repair",
+  "Shower or bathroom plumbing",
+  "Kitchen plumbing",
+  "Radiator or heating pipework",
+  "Water pressure problem",
+  "Boiler or heating concern",
+  "Other plumbing issue",
+];
+
+const urgencyOptions = [
+  "Urgent today",
+  "Within 24-48 hours",
+  "This week",
+  "Flexible",
+];
+
+const areaOptions = [
+  "Wolverhampton",
+  "Bilston",
+  "Wednesfield",
+  "Tettenhall",
+  "Penn",
+  "Bushbury",
+  "Compton",
+  "Whitmore Reans",
+  "Willenhall",
+  "Sedgley",
+  "Codsall",
+  "WV1",
+  "WV2",
+  "WV3",
+  "WV4",
+  "WV6",
+  "WV10",
+  "WV11",
+  "WV14",
+  "Other Wolverhampton area",
+];
 
 export default function ContactForm() {
-  const router = useRouter();
-  const [state, handleSubmit] = useForm("mwvjwlwj");
+  const [issue, setIssue] = useState("");
+  const [urgency, setUrgency] = useState("");
+  const [area, setArea] = useState("");
+  const [details, setDetails] = useState("");
 
-  useEffect(() => {
-    if (state.succeeded) {
-      router.push("/thank-you");
-    }
-  }, [state.succeeded, router]);
+  const whatsappMessage = useMemo(() => {
+    return [
+      "Hi, I need plumbing help in Wolverhampton.",
+      "",
+      `Area: ${area || "Not selected"}`,
+      `Issue: ${issue || "Not selected"}`,
+      `Urgency: ${urgency || "Not selected"}`,
+      `Details: ${details || "Not provided yet"}`,
+      "",
+      "Sent from wolverhamptonplumber.co.uk",
+    ].join("\n");
+  }, [area, issue, urgency, details]);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      whatsappMessage,
+    )}`;
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
   return (
-    <form className="contactForm" onSubmit={handleSubmit}>
-      <label>
-        Your name
-        <input type="text" name="name" placeholder="Your name" required />
-        <ValidationError prefix="Name" field="name" errors={state.errors} />
-      </label>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.formTop}>
+        <div className={styles.checkIcon}>✓</div>
+        <div>
+          <p>Enquiry builder</p>
+          <h2>Build your WhatsApp message</h2>
+        </div>
+      </div>
 
-      <label>
-        Phone number
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Your phone number"
+      <label className={styles.field}>
+        <span>Type of plumbing issue</span>
+        <select
           required
-        />
-        <ValidationError prefix="Phone" field="phone" errors={state.errors} />
-      </label>
-
-      <label>
-        Email address
-        <input type="email" name="email" placeholder="Your email address" />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
-      </label>
-
-      <label>
-        Wolverhampton area
-        <input
-          type="text"
-          name="area"
-          placeholder="e.g. Bilston, Wednesfield, Tettenhall"
-          required
-        />
-        <ValidationError prefix="Area" field="area" errors={state.errors} />
-      </label>
-
-      <label>
-        Type of plumbing issue
-        <select name="issue" required defaultValue="">
+          value={issue}
+          onChange={(event) => setIssue(event.target.value)}
+        >
           <option value="" disabled>
             Select an issue
           </option>
-          <option value="Leak or burst pipe concern">
-            Leak or burst pipe concern
-          </option>
-          <option value="Blocked toilet">Blocked toilet</option>
-          <option value="Blocked sink or drain">Blocked sink or drain</option>
-          <option value="Tap repair">Tap repair</option>
-          <option value="Shower or bathroom plumbing">
-            Shower or bathroom plumbing
-          </option>
-          <option value="Kitchen plumbing">Kitchen plumbing</option>
-          <option value="Radiator or heating plumbing">
-            Radiator or heating plumbing
-          </option>
-          <option value="Water pressure problem">Water pressure problem</option>
-          <option value="Other plumbing issue">Other plumbing issue</option>
+          {issueOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
         </select>
-        <ValidationError prefix="Issue" field="issue" errors={state.errors} />
       </label>
 
-      <label>
-        Urgency
-        <select name="urgency" required defaultValue="">
+      <label className={styles.field}>
+        <span>Urgency</span>
+        <select
+          required
+          value={urgency}
+          onChange={(event) => setUrgency(event.target.value)}
+        >
           <option value="" disabled>
             Select urgency
           </option>
-          <option value="Urgent today">Urgent today</option>
-          <option value="Within 24-48 hours">Within 24-48 hours</option>
-          <option value="This week">This week</option>
-          <option value="Flexible">Flexible</option>
+          {urgencyOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
         </select>
-        <ValidationError
-          prefix="Urgency"
-          field="urgency"
-          errors={state.errors}
-        />
       </label>
 
-      <label className="full">
-        Describe the problem
-        <textarea
-          name="message"
-          rows={6}
-          placeholder="Tell us what happened, where the issue is, and any useful details."
+      <label className={styles.field}>
+        <span>Wolverhampton area</span>
+        <select
           required
-        />
-        <ValidationError
-          prefix="Message"
-          field="message"
-          errors={state.errors}
+          value={area}
+          onChange={(event) => setArea(event.target.value)}
+        >
+          <option value="" disabled>
+            Select area
+          </option>
+          {areaOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label className={styles.field}>
+        <span>Extra details</span>
+        <textarea
+          rows={5}
+          value={details}
+          onChange={(event) => setDetails(event.target.value)}
+          placeholder="Example: blocked toilet upstairs, leaking pipe under kitchen sink, slow draining shower, no hot water, etc."
         />
       </label>
 
-      <input type="hidden" name="website" value="wolverhamptonplumber.co.uk" />
+      <div className={styles.previewBox}>
+        <span>WhatsApp preview</span>
+        <pre>{whatsappMessage}</pre>
+      </div>
 
-      <button
-        type="submit"
-        className="btn primary formButton"
-        disabled={state.submitting}
-      >
-        {state.submitting ? "Sending..." : "Send Plumbing Enquiry"}
+      <button type="submit" className={styles.submitButton}>
+        Send WhatsApp Plumbing Enquiry
       </button>
 
-      <ValidationError errors={state.errors} />
-
-      <p className="formNote">
-        By sending this enquiry, you understand this website helps organise
-        local plumbing enquiries and does not guarantee that a plumber will
-        attend.
+      <p className={styles.note}>
+        The message opens in WhatsApp first, so you can review and edit it
+        before sending.
       </p>
     </form>
   );

@@ -1,39 +1,36 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import Link from "next/link";
+import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
 
 export const metadata: Metadata = {
-  title: "Enquiry Sent | Wolverhampton Plumber",
-  description: "Thank you for sending your Wolverhampton plumbing enquiry.",
+  title: "Thank You | Wolverhampton Plumber",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ThankYouPage() {
   return (
-    <main>
-      <section className="hero innerHero">
-        <div className="container">
-          <p className="eyebrow">Enquiry Sent</p>
+    <main className={styles.page}>
+      <section className={styles.finalCta}>
+        <div className={styles.container}>
+          <div className={styles.finalBox}>
+            <h1>Thank you</h1>
+            <p>
+              Your enquiry route has been completed. For the fastest route, use
+              the WhatsApp enquiry page.
+            </p>
 
-          <h1>Thank You</h1>
+            <div className={styles.heroActionsCenter}>
+              <Link href="/contact" className={styles.primaryBtn}>
+                Back to Contact
+              </Link>
 
-          <p className="heroText">
-            Your plumbing enquiry has been submitted. The details can now be
-            reviewed and handled where possible.
-          </p>
-
-          <p className="safeNote">
-            This website does not guarantee emergency attendance or response
-            times. For serious emergencies or suspected gas leaks, contact the
-            appropriate emergency service immediately.
-          </p>
-
-          <div className="heroButtons">
-            <Link href="/" className="btn primary">
-              Back to Home
-            </Link>
-
-            <Link href="/plumbing-advice" className="btn secondary">
-              View Plumbing Advice
-            </Link>
+              <Link href="/" className={styles.secondaryBtn}>
+                Back Home
+              </Link>
+            </div>
           </div>
         </div>
       </section>

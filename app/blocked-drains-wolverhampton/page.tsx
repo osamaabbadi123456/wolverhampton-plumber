@@ -1,204 +1,448 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import Link from "next/link";
+import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
+
+const whatsappLink =
+  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20help%20with%20a%20blocked%20drain%20or%20blocked%20toilet%20in%20Wolverhampton.";
 
 export const metadata: Metadata = {
-  title: "Blocked Drains Wolverhampton | Blocked Toilets & Sinks",
+  title: "Blocked Drains Wolverhampton | Drain & Toilet Enquiries",
   description:
-    "Submit a blocked drain enquiry in Wolverhampton for blocked toilets, blocked sinks, slow draining water, bad smells and drainage problems.",
+    "Blocked drains Wolverhampton enquiries by WhatsApp. Send details for blocked toilets, blocked sinks, slow draining water, bathroom waste and outside drain concerns.",
+  keywords: [
+    "blocked drains Wolverhampton",
+    "blocked drain Wolverhampton",
+    "blocked toilet Wolverhampton",
+    "blocked sink Wolverhampton",
+    "drain plumber Wolverhampton",
+    "drainage Wolverhampton",
+    "plumber Wolverhampton",
+    "emergency plumber Wolverhampton",
+  ],
+  alternates: {
+    canonical: "/blocked-drains-wolverhampton",
+  },
+  openGraph: {
+    title: "Blocked Drains Wolverhampton | Drain & Toilet Enquiries",
+    description:
+      "Send a WhatsApp enquiry for blocked drains, blocked toilets, blocked sinks, slow draining water and drainage concerns in Wolverhampton.",
+    url: "https://wolverhamptonplumber.co.uk/blocked-drains-wolverhampton",
+    type: "website",
+    locale: "en_GB",
+  },
 };
 
+const services = [
+  {
+    title: "Blocked Drains",
+    text: "Send an enquiry for blocked drains, outside drain concerns, slow draining water and drainage problems around Wolverhampton homes.",
+    points: [
+      "Outside drain concerns",
+      "Slow draining water",
+      "Drainage enquiries",
+    ],
+  },
+  {
+    title: "Blocked Toilets",
+    text: "For urgent toilet blockages, rising water, repeated flushing issues and bathroom waste problems.",
+    points: ["Toilet blockage", "Rising water", "Bathroom waste issues"],
+  },
+  {
+    title: "Blocked Sinks",
+    text: "For blocked kitchen sinks, bathroom basins, slow draining plugholes and waste pipe concerns.",
+    points: [
+      "Kitchen sink blockage",
+      "Bathroom basin blockage",
+      "Waste pipe concern",
+    ],
+  },
+  {
+    title: "Shower & Bath Drainage",
+    text: "For slow draining showers, bath drainage problems, smells from waste pipes or repeated bathroom blockages.",
+    points: ["Shower drainage", "Bath drainage", "Bathroom smells"],
+  },
+  {
+    title: "Kitchen Waste Pipes",
+    text: "For kitchen waste pipe concerns, sink drainage problems, appliance waste issues and under-sink pipework.",
+    points: ["Kitchen waste", "Under-sink pipework", "Appliance waste"],
+  },
+  {
+    title: "Urgent Drain Enquiries",
+    text: "If the issue feels urgent, use the WhatsApp enquiry page to send the area, problem and urgency clearly.",
+    points: ["Urgent today", "24–48 hours", "Clear WhatsApp message"],
+  },
+];
+
+const areas = [
+  "Wolverhampton",
+  "Bilston",
+  "Wednesfield",
+  "Tettenhall",
+  "Penn",
+  "Bushbury",
+  "Compton",
+  "Whitmore Reans",
+  "Willenhall",
+  "Sedgley",
+  "Codsall",
+  "WV1",
+  "WV2",
+  "WV3",
+  "WV4",
+  "WV6",
+  "WV10",
+  "WV11",
+  "WV14",
+];
+
+const faqs = [
+  {
+    q: "Can I send a blocked drain enquiry in Wolverhampton?",
+    a: "Yes. You can send a WhatsApp enquiry with your Wolverhampton area, the type of blockage, how urgent it is and any useful details.",
+  },
+  {
+    q: "What blocked drain problems can I send?",
+    a: "Common enquiries include blocked drains, blocked toilets, blocked sinks, slow draining water, shower drainage, bath drainage and kitchen waste pipe concerns.",
+  },
+  {
+    q: "Should I include photos or details?",
+    a: "Yes. If possible, include the area, what is blocked, whether water is rising or draining slowly, and any photos that help explain the issue.",
+  },
+  {
+    q: "Is attendance guaranteed?",
+    a: "No. This website helps organise local plumbing enquiries in Wolverhampton. Response depends on availability, timing and the details of the enquiry.",
+  },
+];
+
 export default function BlockedDrainsWolverhamptonPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Blocked Drains Wolverhampton Enquiries",
+    serviceType: "Blocked drain and blocked toilet enquiries",
+    areaServed: {
+      "@type": "City",
+      name: "Wolverhampton",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Wolverhampton Plumber",
+      url: "https://wolverhamptonplumber.co.uk",
+    },
+    url: "https://wolverhamptonplumber.co.uk/blocked-drains-wolverhampton",
+    description:
+      "Blocked drains Wolverhampton enquiry page for blocked toilets, blocked sinks, slow draining water, bathroom drainage and outside drain concerns.",
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
-    <main>
-      <section className="hero innerHero">
-        <div className="container heroGrid">
-          <div>
-            <p className="eyebrow">Blocked Drain Enquiries</p>
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-            <h1>Blocked Drains Wolverhampton</h1>
+      <main className={styles.page}>
+        <section className={styles.hero}>
+          <div className={styles.container}>
+            <div className={styles.heroGrid}>
+              <div className={styles.heroText}>
+                <div className={styles.badge}>
+                  Blocked drain enquiries in Wolverhampton
+                </div>
 
-            <p className="heroText">
-              Dealing with a blocked toilet, blocked sink, slow draining water,
-              bad smell or outside drain issue in Wolverhampton? Submit your
-              enquiry and we’ll try to connect you with available local plumbing
-              or drainage help.
-            </p>
+                <h1>
+                  Blocked Drains
+                  <span> Wolverhampton</span>
+                </h1>
 
-            <div className="heroButtons">
-              <Link href="/contact" className="btn primary">
-                Request Drain Help
-              </Link>
+                <p>
+                  Need help with a blocked drain, blocked toilet, blocked sink
+                  or slow draining water in Wolverhampton? Send a WhatsApp
+                  enquiry with your area, issue and urgency.
+                </p>
 
-              <a
-                href="mailto:info@wolverhamptonplumber.co.uk"
-                className="btn secondary"
-              >
-                Email Your Enquiry
-              </a>
+                <div className={styles.heroActions}>
+                  <Link href="/contact" className={styles.primaryBtn}>
+                    Start WhatsApp Enquiry
+                  </Link>
+                  <a
+                    href={whatsappLink}
+                    className={styles.secondaryBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp Drain Enquiry
+                  </a>
+                </div>
+
+                <div className={styles.microTrust}>
+                  <span>Blocked drain enquiries</span>
+                  <span>WV postcode focused</span>
+                  <span>Clear WhatsApp message</span>
+                </div>
+
+                <small>
+                  This website helps organise local plumbing and drainage
+                  enquiries. Response depends on availability, timing and the
+                  details of the enquiry. Serious flooding, sewage issues or
+                  safety risks may need urgent specialist help.
+                </small>
+              </div>
+
+              <aside className={styles.visualCard}>
+                <div className={styles.visualHeader}>
+                  <span>Drain enquiry</span>
+                  <strong>Wolverhampton</strong>
+                </div>
+
+                <div className={styles.requestCard}>
+                  <div className={styles.requestIcon}>✓</div>
+
+                  <p>WhatsApp drain enquiry</p>
+                  <h2>Send the blockage clearly</h2>
+
+                  <div className={styles.requestRows}>
+                    <div>
+                      <span>Area</span>
+                      <strong>Bilston / WV1 / Wednesfield</strong>
+                    </div>
+                    <div>
+                      <span>Issue</span>
+                      <strong>Blocked drain, toilet or sink</strong>
+                    </div>
+                    <div>
+                      <span>Urgency</span>
+                      <strong>Today / 24–48 hours / flexible</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.visualBottom}>
+                  <div>
+                    <span>Message format</span>
+                    <strong>Area + Blockage + Urgency</strong>
+                  </div>
+                  <div>
+                    <span>Sent by</span>
+                    <strong>WhatsApp</strong>
+                  </div>
+                </div>
+              </aside>
             </div>
 
-            <p className="safeNote">
-              We are a local enquiry website. We do not guarantee attendance or
-              drainage repair work directly.
-            </p>
+            <div className={styles.heroStats}>
+              <div>
+                <strong>Blocked drains</strong>
+                <span>outside drain concerns</span>
+              </div>
+              <div>
+                <strong>Blocked toilets</strong>
+                <span>urgent bathroom issues</span>
+              </div>
+              <div>
+                <strong>Blocked sinks</strong>
+                <span>kitchen & bathroom waste</span>
+              </div>
+              <div>
+                <strong>Wolverhampton</strong>
+                <span>WV area focused</span>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="heroCard">
-            <h2>Blocked Drain Problems</h2>
-
-            <ul>
-              <li>Blocked toilets</li>
-              <li>Blocked kitchen sinks</li>
-              <li>Blocked bathroom sinks</li>
-              <li>Slow draining water</li>
-              <li>Bad smells from drains</li>
-              <li>Outside drain issues</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container split">
-          <div>
-            <p className="eyebrow">Drainage Problems</p>
-            <h2>Blocked Toilets, Sinks and Drains in Wolverhampton</h2>
-
-            <p>
-              Blocked drains can quickly become stressful, especially when water
-              starts backing up or a toilet becomes unusable. This page is for
-              Wolverhampton residents looking for help with blocked toilets,
-              sinks, baths, showers and general drain problems.
-            </p>
-
-            <p>
-              Send the details of the blockage, your Wolverhampton area, how
-              urgent the issue is and whether the problem is inside or outside
-              the property.
-            </p>
-          </div>
-
-          <div className="infoPanel">
-            <h3>Helpful Details to Include</h3>
-            <ul>
-              <li>Is it a toilet, sink, bath, shower or outside drain?</li>
-              <li>Is water backing up or draining slowly?</li>
-              <li>Is there a bad smell?</li>
-              <li>When did the problem start?</li>
-              <li>Can you send photos if safe and useful?</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section light">
-        <div className="container">
-          <p className="eyebrow">Common Enquiries</p>
-          <h2>Drain and Blockage Help Requests</h2>
-
-          <div className="cards">
-            <div className="card">
-              <h3>Blocked Toilets</h3>
+        <section className={styles.servicesSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Drainage search intent</div>
+              <h2>
+                Blocked drain and toilet enquiries,
+                <span> clearly organised.</span>
+              </h2>
               <p>
-                Enquiries for toilets that will not flush properly, overflowing
-                toilets, recurring blockages and urgent bathroom drainage
-                issues.
+                This page targets Wolverhampton users searching for blocked
+                drains, blocked toilets, blocked sinks and slow drainage help.
               </p>
             </div>
 
-            <div className="card">
-              <h3>Blocked Sinks</h3>
+            <div className={styles.cardsGrid}>
+              {services.map((service) => (
+                <article className={styles.serviceCard} key={service.title}>
+                  <div className={styles.serviceIcon}>✓</div>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  <ul>
+                    {service.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.trustSection}>
+          <div className={styles.container}>
+            <div className={styles.trustGrid}>
+              <div>
+                <div className={styles.badge}>Clear local enquiry process</div>
+                <h2>
+                  A Wolverhampton blocked drain enquiry page.
+                  <span> Built for fast WhatsApp contact.</span>
+                </h2>
+                <p>
+                  Instead of a long form, the enquiry flow helps the visitor
+                  send the essential details: the Wolverhampton area, what is
+                  blocked, how urgent the problem is and any extra notes.
+                </p>
+
+                <div className={styles.trustList}>
+                  <div>
+                    <strong>Clear issue type</strong>
+                    <span>
+                      Blocked drain, blocked toilet, blocked sink or slow
+                      drainage.
+                    </span>
+                  </div>
+                  <div>
+                    <strong>Local area detail</strong>
+                    <span>
+                      Focused on Wolverhampton, WV postcodes and nearby areas.
+                    </span>
+                  </div>
+                  <div>
+                    <strong>Useful urgency context</strong>
+                    <span>
+                      The enquiry can say today, 24–48 hours or flexible.
+                    </span>
+                  </div>
+                  <div>
+                    <strong>Simple WhatsApp route</strong>
+                    <span>The message opens ready to edit before sending.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.enquiryBox}>
+                <div className={styles.checkCircle}>✓</div>
+                <h3>What the visitor sends</h3>
+
+                <div className={styles.enquiryRows}>
+                  <div>
+                    <span>Area</span>
+                    <strong>Bilston / WV1 / Wednesfield</strong>
+                  </div>
+                  <div>
+                    <span>Issue</span>
+                    <strong>Blocked drain / toilet / sink</strong>
+                  </div>
+                  <div>
+                    <span>Urgency</span>
+                    <strong>Today / 24–48 hours / flexible</strong>
+                  </div>
+                  <div>
+                    <span>Channel</span>
+                    <strong>WhatsApp message</strong>
+                  </div>
+                </div>
+
+                <Link href="/contact" className={styles.fullBtn}>
+                  Open Enquiry Page
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.areaSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Local relevance</div>
+              <h2>
+                Blocked drain enquiries across
+                <span> Wolverhampton.</span>
+              </h2>
               <p>
-                Help requests for kitchen sinks, bathroom sinks, slow drainage,
-                standing water and waste pipe problems.
+                The page includes Wolverhampton areas and WV postcode signals to
+                support local relevance for drain and toilet blockage searches.
               </p>
             </div>
 
-            <div className="card">
-              <h3>Outside Drains</h3>
-              <p>
-                Enquiries for external drain blockages, bad smells, water
-                pooling outside and drainage problems around the property.
-              </p>
+            <div className={styles.areaPills}>
+              {areas.map((area) => (
+                <span key={area}>{area}</span>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">Areas</p>
-          <h2>Blocked Drain Enquiries Across Wolverhampton</h2>
+        <section className={styles.faqSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Questions</div>
+              <h2>
+                Blocked drains
+                <span> Wolverhampton FAQs.</span>
+              </h2>
+            </div>
 
-          <p>
-            This page focuses on blocked drain and plumbing enquiries across
-            Wolverhampton and nearby areas including Bilston, Wednesfield,
-            Tettenhall, Penn, Bushbury, Compton, Whitmore Reans, Willenhall,
-            Codsall and Sedgley.
-          </p>
-
-          <div className="areaBox mt">
-            <span>Wolverhampton</span>
-            <span>Bilston</span>
-            <span>Wednesfield</span>
-            <span>Tettenhall</span>
-            <span>Penn</span>
-            <span>Bushbury</span>
-            <span>Compton</span>
-            <span>Willenhall</span>
-            <span>Sedgley</span>
-            <span>Codsall</span>
+            <div className={styles.faqGrid}>
+              {faqs.map((item) => (
+                <details className={styles.faqItem} key={item.q}>
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="center">
-            <Link href="/contact" className="btn primary">
-              Submit a Blocked Drain Enquiry
-            </Link>
+        <section className={styles.finalCta}>
+          <div className={styles.container}>
+            <div className={styles.finalBox}>
+              <h2>Need help with blocked drains in Wolverhampton?</h2>
+              <p>
+                Start with a WhatsApp enquiry. Choose your issue, area and
+                urgency, then send the pre-filled message.
+              </p>
+
+              <div className={styles.heroActionsCenter}>
+                <Link href="/contact" className={styles.primaryBtn}>
+                  Start WhatsApp Enquiry
+                </Link>
+                <a
+                  href={whatsappLink}
+                  className={styles.secondaryBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp Drain Enquiry
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section light">
-        <div className="container faq">
-          <p className="eyebrow">FAQ</p>
-          <h2>Blocked Drains Wolverhampton FAQs</h2>
-
-          <div className="faqItem">
-            <h3>Can I request help for a blocked toilet in Wolverhampton?</h3>
-            <p>
-              Yes. You can submit an enquiry for blocked toilets, overflowing
-              toilets, slow flushing toilets and other bathroom drainage issues.
-            </p>
-          </div>
-
-          <div className="faqItem">
-            <h3>Do you cover blocked sinks?</h3>
-            <p>
-              This site accepts enquiries for blocked kitchen sinks, bathroom
-              sinks, bath waste problems, shower drainage issues and slow
-              draining water.
-            </p>
-          </div>
-
-          <div className="faqItem">
-            <h3>What should I do before submitting an enquiry?</h3>
-            <p>
-              Avoid using the affected toilet, sink or drain if water is backing
-              up. Take photos if useful and include your area, urgency and the
-              type of blockage in your enquiry.
-            </p>
-          </div>
-
-          <div className="faqItem">
-            <h3>Is this a drainage company?</h3>
-            <p>
-              This is a local enquiry website focused on Wolverhampton plumbing
-              and drainage enquiries. We try to connect enquiries with available
-              local help where possible.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }

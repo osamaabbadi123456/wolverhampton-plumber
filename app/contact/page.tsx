@@ -1,105 +1,75 @@
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import styles from "./ContactPage.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Wolverhampton Plumber | Send a Plumbing Enquiry",
+  title: "Contact Wolverhampton Plumber | WhatsApp Plumbing Enquiry",
   description:
-    "Send a Wolverhampton plumbing enquiry for leaks, blocked toilets, tap repairs, bathroom plumbing, heating plumbing and general plumbing help.",
+    "Send a Wolverhampton plumbing enquiry by WhatsApp. Choose your issue, area and urgency for leaks, blocked toilets, blocked drains, tap repairs and heating plumbing concerns.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Wolverhampton Plumber",
+    url: "https://wolverhamptonplumber.co.uk/contact",
+    description:
+      "WhatsApp plumbing enquiry page for Wolverhampton plumbing issues including leaks, blocked toilets, blocked drains, tap repairs and heating plumbing concerns.",
+  };
+
   return (
-    <main>
-      <section className="hero innerHero">
-        <div className="container heroGrid">
-          <div>
-            <p className="eyebrow">Send an Enquiry</p>
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
 
-            <h1>Send Your Wolverhampton Plumbing Enquiry</h1>
+      <main className={styles.page}>
+        <section className={styles.hero}>
+          <div className={styles.container}>
+            <div className={styles.grid}>
+              <div className={styles.copy}>
+                <div className={styles.badge}>WhatsApp plumbing enquiry</div>
 
-            <p className="heroText">
-              Tell us what plumbing help you need in Wolverhampton. Include your
-              area, the type of problem, how urgent it is and the best way to
-              contact you.
-            </p>
+                <h1>
+                  Send Your Wolverhampton
+                  <span> Plumbing Enquiry</span>
+                </h1>
 
-            <p className="safeNote">
-              We are a local plumbing enquiry website. Your enquiry may be used
-              to help connect you with available local plumbing help where
-              possible, but attendance and response times are not guaranteed.
-            </p>
-          </div>
+                <p>
+                  Choose your plumbing issue, Wolverhampton area and urgency.
+                  The form will create a clear WhatsApp message that you can
+                  edit before sending.
+                </p>
 
-          <div className="heroCard">
-            <h2>Good Details to Send</h2>
+                <div className={styles.trustRow}>
+                  <span>Leaks</span>
+                  <span>Blocked toilets</span>
+                  <span>Blocked drains</span>
+                  <span>Tap repairs</span>
+                  <span>Heating pipework</span>
+                </div>
 
-            <ul>
-              <li>Your Wolverhampton area</li>
-              <li>The plumbing issue</li>
-              <li>How urgent it is</li>
-              <li>Photos if useful</li>
-              <li>Your phone number or email</li>
-              <li>Best time to contact you</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <small>
+                  This website helps organise local plumbing enquiries in
+                  Wolverhampton. Response depends on availability, timing and
+                  the details of the enquiry. Gas work must be handled by a Gas
+                  Safe registered engineer.
+                </small>
+              </div>
 
-      <section className="section">
-        <div className="container contactGrid">
-          <div>
-            <p className="eyebrow">Plumbing Enquiry Form</p>
-            <h2>Send Your Plumbing Details</h2>
-
-            <p>
-              Use the form below to send your plumbing enquiry. Your details
-              will be submitted through the website so the enquiry can be
-              reviewed and handled more clearly.
-            </p>
-
-            <ContactForm />
-          </div>
-
-          <aside className="contactSide">
-            <div className="infoPanel">
-              <h3>WhatsApp Enquiry</h3>
-              <p>
-                You can also send your enquiry on WhatsApp. Include your area,
-                issue, urgency and contact details.
-              </p>
-
-              <a
-                className="sideEmail"
-                href="https://wa.me/447448632279?text=Hi%2C%20I%20need%20plumbing%20help%20in%20Wolverhampton."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Send WhatsApp Enquiry
-              </a>
+              <div className={styles.formShell}>
+                <ContactForm />
+              </div>
             </div>
-
-            <div className="sideCard">
-              <h3>Emergency Safety</h3>
-              <p>
-                If water is leaking badly, turn off the mains water supply if
-                safe to do so. For suspected gas leaks, contact the National Gas
-                Emergency Service immediately.
-              </p>
-            </div>
-
-            <div className="sideCard">
-              <h3>Popular Enquiries</h3>
-              <ul>
-                <li>Emergency plumbing enquiries</li>
-                <li>Blocked toilets and drains</li>
-                <li>Leaks and pipe problems</li>
-                <li>Tap and shower repairs</li>
-                <li>Heating plumbing concerns</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
-    </main>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
