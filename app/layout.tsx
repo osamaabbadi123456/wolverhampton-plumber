@@ -35,7 +35,9 @@ const adviceLinks = [
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wolverhamptonplumber.co.uk"),
-
+  verification: {
+    google: "h72gJUkOntRWM_Q3TBz4N3T7fqkXUevB3WKmeKRCckU",
+  },
   title: {
     default: "Wolverhampton Plumber | Local Plumbing Enquiries & Help",
     template: "%s | Wolverhampton Plumber",
