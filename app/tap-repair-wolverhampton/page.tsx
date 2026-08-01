@@ -3,66 +3,109 @@ import Link from "next/link";
 import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
 
 const whatsappLink =
-  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20help%20with%20a%20tap%20repair%20or%20tap%20leak%20in%20Wolverhampton.";
+  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20help%20with%20a%20tap%20repair%20in%20Wolverhampton.";
 
 export const metadata: Metadata = {
-  title: "Tap Repair Wolverhampton | Leaking Tap Plumbing Enquiries",
+  title: "Tap Repair Wolverhampton | Dripping, Leaking & Broken Taps",
   description:
-    "Tap repair Wolverhampton enquiries by WhatsApp. Send details for leaking taps, dripping taps, broken taps, loose tap fittings, low water flow and kitchen or bathroom tap issues.",
+    "Tap repair Wolverhampton enquiries for dripping taps, leaking tap bases, stiff taps, broken taps, kitchen taps, bathroom taps and poor water flow.",
   keywords: [
     "tap repair Wolverhampton",
-    "leaking tap Wolverhampton",
     "dripping tap Wolverhampton",
+    "leaking tap Wolverhampton",
     "broken tap Wolverhampton",
-    "tap plumber Wolverhampton",
     "kitchen tap repair Wolverhampton",
     "bathroom tap repair Wolverhampton",
-    "Wolverhampton plumber",
+    "tap plumber Wolverhampton",
     "plumber Wolverhampton",
   ],
   alternates: {
     canonical: "/tap-repair-wolverhampton",
   },
   openGraph: {
-    title: "Tap Repair Wolverhampton | Leaking Tap Plumbing Enquiries",
+    title: "Tap Repair Wolverhampton | Dripping, Leaking & Broken Taps",
     description:
-      "Send a WhatsApp enquiry for leaking taps, dripping taps, broken taps, loose tap fittings, low water flow and kitchen or bathroom tap issues in Wolverhampton.",
+      "Send a clear WhatsApp enquiry for dripping taps, leaking tap bases, stiff taps, broken taps and tap water flow problems in Wolverhampton.",
     url: "https://wolverhamptonplumber.co.uk/tap-repair-wolverhampton",
     type: "website",
     locale: "en_GB",
   },
 };
 
-const services = [
+const tapProblems = [
   {
-    title: "Leaking Taps",
-    text: "Send an enquiry for water leaking from kitchen taps, bathroom taps, tap bases or fittings.",
-    points: ["Kitchen tap leak", "Bathroom tap leak", "Leaking tap base"],
+    title: "Dripping tap",
+    text: "A tap that keeps dripping from the spout can waste water and may get worse over time. Say whether it drips constantly or only after use.",
   },
   {
-    title: "Dripping Taps",
-    text: "For taps that keep dripping, do not shut off properly or waste water after use.",
-    points: ["Constant drip", "Poor shut-off", "Water waste"],
+    title: "Leaking tap base",
+    text: "Water around the base of the tap can point to a seal, fitting or connection issue. Mention whether it happens when the tap is turned on.",
   },
   {
-    title: "Broken Taps",
-    text: "For stiff taps, loose handles, damaged fittings, broken tap heads or taps that are difficult to use.",
-    points: ["Loose handle", "Stiff tap", "Damaged fitting"],
+    title: "Tap will not turn off",
+    text: "If the tap will not close properly, describe whether the water is trickling, running, or getting worse.",
   },
   {
-    title: "Low Tap Water Flow",
-    text: "For poor water flow from one tap, a bathroom basin, kitchen sink or multiple fixtures.",
-    points: ["Low water flow", "One tap affected", "Hot or cold water"],
+    title: "Stiff or loose tap",
+    text: "A stiff, loose or spinning tap handle is worth describing clearly, especially if the tap is hard to use.",
   },
   {
-    title: "Kitchen Tap Issues",
-    text: "For kitchen sink tap leaks, loose fittings, under-sink water, isolation valve concerns or pipework near the tap.",
-    points: ["Kitchen sink tap", "Under-sink water", "Pipework near tap"],
+    title: "Low flow from one tap",
+    text: "If only one tap has weak flow, that is different from low pressure across the whole home.",
   },
   {
-    title: "Bathroom Tap Issues",
-    text: "For basin taps, bath taps, mixer taps, leaking fittings and bathroom water flow concerns.",
-    points: ["Basin taps", "Bath taps", "Mixer taps"],
+    title: "Kitchen or bathroom tap issue",
+    text: "Say whether the tap is in the kitchen, bathroom, cloakroom, utility area or outside.",
+  },
+];
+
+const tapLocations = [
+  {
+    title: "Kitchen taps",
+    text: "Useful for kitchen tap leaks, stiff mixer taps, poor flow, under-sink water and tap base leaks.",
+    href: "/kitchen-plumber-wolverhampton",
+  },
+  {
+    title: "Bathroom taps",
+    text: "Useful for basin taps, bath taps, mixer taps, loose taps and visible water around bathroom fittings.",
+    href: "/bathroom-plumber-wolverhampton",
+  },
+  {
+    title: "Leaks around taps",
+    text: "If the main issue is water spreading under the sink or around pipework, the leak repair page may fit better.",
+    href: "/leak-repair-wolverhampton",
+  },
+  {
+    title: "Water pressure problems",
+    text: "If the main issue is weak flow from taps or showers, the water pressure page may be more relevant.",
+    href: "/water-pressure-plumber-wolverhampton",
+  },
+];
+
+const messageChecklist = [
+  "Which tap is affected: kitchen, bathroom, bath, basin or outside tap",
+  "Whether it is dripping, leaking, stiff, loose or not turning off",
+  "Whether water is visible under the sink or around the tap base",
+  "Whether hot, cold or both sides are affected",
+  "Whether the water flow is weak from one tap or several taps",
+  "Your Wolverhampton area or WV postcode",
+];
+
+const quickExamples = [
+  {
+    label: "Dripping tap",
+    value:
+      "Kitchen tap in WV3 keeps dripping from the spout, even when fully turned off.",
+  },
+  {
+    label: "Base leak",
+    value:
+      "Bathroom basin tap in Bilston leaks around the base when the tap is running.",
+  },
+  {
+    label: "Low flow",
+    value:
+      "Cold water from one upstairs bathroom tap is very weak. Other taps seem normal.",
   },
 ];
 
@@ -75,6 +118,9 @@ const areas = [
   "Bushbury",
   "Compton",
   "Whitmore Reans",
+  "Oxley",
+  "Finchfield",
+  "Merry Hill",
   "Willenhall",
   "Sedgley",
   "Codsall",
@@ -90,20 +136,24 @@ const areas = [
 
 const faqs = [
   {
-    q: "Can I send a tap repair enquiry in Wolverhampton?",
-    a: "Yes. You can send a WhatsApp enquiry with your Wolverhampton area, the tap issue, urgency and any useful details.",
+    q: "What should I include in a tap repair enquiry?",
+    a: "Include the room, the tap type if known, whether it is dripping, leaking, stiff or not turning off, and your Wolverhampton area.",
   },
   {
-    q: "What tap problems can I send?",
-    a: "Common enquiries include leaking taps, dripping taps, broken taps, loose tap fittings, low water flow and kitchen or bathroom tap issues.",
+    q: "Is a dripping tap urgent?",
+    a: "It depends how much water is escaping and whether it is getting worse. If the tap will not turn off or water is spreading, treat it as more urgent.",
   },
   {
-    q: "What details help with a tap repair enquiry?",
-    a: "Include whether it is a kitchen, bathroom, basin or bath tap, whether it is leaking or dripping, and whether the hot or cold side is affected.",
+    q: "What if water is leaking under the sink?",
+    a: "Mention the visible water and whether it appears around the tap, waste pipe or supply pipe. The leak repair page may also be relevant.",
   },
   {
-    q: "Should I include a photo?",
-    a: "A photo can help explain the type of tap, the visible leak and where the water appears to be coming from.",
+    q: "What if only one tap has low water flow?",
+    a: "Say that only one tap is affected. Low flow from one tap is different from a whole-property water pressure issue.",
+  },
+  {
+    q: "Can I send photos?",
+    a: "Yes, if safe. A photo of the tap and the wider sink area can help explain the issue.",
   },
 ];
 
@@ -124,7 +174,7 @@ export default function TapRepairWolverhamptonPage() {
     },
     url: "https://wolverhamptonplumber.co.uk/tap-repair-wolverhampton",
     description:
-      "Tap repair Wolverhampton enquiry page for leaking taps, dripping taps, broken taps, loose fittings, low water flow and kitchen or bathroom tap issues.",
+      "Wolverhampton tap repair enquiry page covering dripping taps, leaking tap bases, stiff taps, broken taps, kitchen taps, bathroom taps and poor water flow.",
   };
 
   const faqSchema = {
@@ -140,6 +190,25 @@ export default function TapRepairWolverhamptonPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://wolverhamptonplumber.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Tap Repair Wolverhampton",
+        item: "https://wolverhamptonplumber.co.uk/tap-repair-wolverhampton",
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -152,6 +221,11 @@ export default function TapRepairWolverhamptonPage() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <main className={styles.page}>
         <section className={styles.hero}>
@@ -159,7 +233,7 @@ export default function TapRepairWolverhamptonPage() {
             <div className={styles.heroGrid}>
               <div className={styles.heroText}>
                 <div className={styles.badge}>
-                  Tap repair enquiries in Wolverhampton
+                  Dripping, leaking and broken tap enquiries
                 </div>
 
                 <h1>
@@ -168,14 +242,15 @@ export default function TapRepairWolverhamptonPage() {
                 </h1>
 
                 <p>
-                  Need help with a leaking tap, dripping tap, broken tap, loose
-                  fitting or low water flow in Wolverhampton? Send a WhatsApp
-                  enquiry with your area, issue and urgency.
+                  A dripping tap, leaking tap base, stiff handle or tap that
+                  will not turn off can be annoying and waste water. Send your
+                  Wolverhampton area, which tap is affected, what it is doing,
+                  and whether water is visible around the sink or pipework.
                 </p>
 
                 <div className={styles.heroActions}>
                   <Link href="/contact" className={styles.primaryBtn}>
-                    Start WhatsApp Enquiry
+                    Describe the Tap Problem
                   </Link>
                   <a
                     href={whatsappLink}
@@ -188,15 +263,14 @@ export default function TapRepairWolverhamptonPage() {
                 </div>
 
                 <div className={styles.microTrust}>
-                  <span>Tap repair enquiries</span>
-                  <span>WV postcode focused</span>
-                  <span>Clear WhatsApp message</span>
+                  <span>Dripping taps</span>
+                  <span>Kitchen and bathroom taps</span>
+                  <span>One tap or several?</span>
                 </div>
 
                 <small>
-                  This website helps collect clear plumbing enquiry details
-                  before any next step. Response depends on availability, timing
-                  and the details of the enquiry.
+                  If water is spreading under a sink or near electrics, keep
+                  safe first and include that detail clearly in the enquiry.
                 </small>
               </div>
 
@@ -209,32 +283,32 @@ export default function TapRepairWolverhamptonPage() {
                 <div className={styles.requestCard}>
                   <div className={styles.requestIcon}>✓</div>
 
-                  <p>WhatsApp tap enquiry</p>
-                  <h2>Send the tap issue clearly</h2>
+                  <p>Useful tap message</p>
+                  <h2>Say how the tap is failing</h2>
 
                   <div className={styles.requestRows}>
                     <div>
-                      <span>Area</span>
-                      <strong>Bilston / WV1 / Wednesfield</strong>
+                      <span>Tap</span>
+                      <strong>Kitchen, bathroom, bath or basin</strong>
                     </div>
                     <div>
                       <span>Issue</span>
-                      <strong>Leaking, dripping or broken tap</strong>
+                      <strong>Dripping, leaking, stiff or low flow</strong>
                     </div>
                     <div>
-                      <span>Urgency</span>
-                      <strong>Today / 24–48 hours / flexible</strong>
+                      <span>Water</span>
+                      <strong>Visible around tap base or under sink?</strong>
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.visualBottom}>
                   <div>
-                    <span>Message format</span>
-                    <strong>Area + Tap Issue + Urgency</strong>
+                    <span>Useful detail</span>
+                    <strong>hot, cold or both?</strong>
                   </div>
                   <div>
-                    <span>Sent by</span>
+                    <span>Channel</span>
                     <strong>WhatsApp</strong>
                   </div>
                 </div>
@@ -243,20 +317,96 @@ export default function TapRepairWolverhamptonPage() {
 
             <div className={styles.heroStats}>
               <div>
-                <strong>Leaking taps</strong>
-                <span>kitchen & bathroom</span>
+                <strong>Tap repair</strong>
+                <span>drips, leaks and fittings</span>
               </div>
               <div>
-                <strong>Dripping taps</strong>
-                <span>constant water drip</span>
+                <strong>Kitchen taps</strong>
+                <span>sink and base leaks</span>
               </div>
               <div>
-                <strong>Broken taps</strong>
-                <span>handles & fittings</span>
+                <strong>Bathroom taps</strong>
+                <span>basin, bath and mixer taps</span>
               </div>
               <div>
                 <strong>Wolverhampton</strong>
-                <span>WV area focused</span>
+                <span>WV area focus</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.tapProblemSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>What is wrong with the tap?</div>
+              <h2>
+                Tap problems are easier to explain
+                <span> when you name the symptom.</span>
+              </h2>
+              <p>
+                The first message does not need technical terms. Just describe
+                what the tap is doing and where it is.
+              </p>
+            </div>
+
+            <div className={styles.tapGrid}>
+              {tapProblems.map((item) => (
+                <article className={styles.tapCard} key={item.title}>
+                  <span>Tap</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.messageChecklistSection}>
+          <div className={styles.container}>
+            <div className={styles.checklistPanel}>
+              <div>
+                <div className={styles.badge}>Before you send</div>
+                <h2>
+                  Tap repair message
+                  <span> checklist.</span>
+                </h2>
+                <p>
+                  These details make the enquiry clearer and reduce unnecessary
+                  back-and-forth.
+                </p>
+              </div>
+
+              <ul>
+                {messageChecklist.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.tapCompareSection}>
+          <div className={styles.container}>
+            <div className={styles.tapComparePanel}>
+              <div>
+                <div className={styles.badge}>One tap or the whole home?</div>
+                <h2>
+                  Weak flow from one tap
+                  <span> is different from low pressure everywhere.</span>
+                </h2>
+                <p>
+                  If only one tap is affected, say that. If several taps,
+                  showers or the whole home have weak water flow, use the water
+                  pressure page instead.
+                </p>
+              </div>
+
+              <div className={styles.tapCompareActions}>
+                <Link href="/water-pressure-plumber-wolverhampton">
+                  Water Pressure Page
+                </Link>
+                <Link href="/leak-repair-wolverhampton">Leak Repair Page</Link>
               </div>
             </div>
           </div>
@@ -265,105 +415,53 @@ export default function TapRepairWolverhamptonPage() {
         <section className={styles.servicesSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Tap repair search intent</div>
+              <div className={styles.badge}>Choose the closest page</div>
               <h2>
-                Tap repair and leaking tap enquiries,
-                <span> clearly organised.</span>
+                Tap problems often connect to
+                <span> nearby plumbing issues.</span>
               </h2>
               <p>
-                This page targets Wolverhampton users searching for tap repair,
-                leaking taps, dripping taps, broken taps and kitchen or bathroom
-                tap issues.
+                Use the closest page so the enquiry is specific and easier to
+                understand.
               </p>
             </div>
 
             <div className={styles.cardsGrid}>
-              {services.map((service) => (
-                <article className={styles.serviceCard} key={service.title}>
+              {tapLocations.map((item) => (
+                <article className={styles.serviceCard} key={item.href}>
                   <div className={styles.serviceIcon}>✓</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  <ul>
-                    {service.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  <Link href={item.href} className={styles.cardLink}>
+                    Open related page
+                  </Link>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className={styles.trustSection}>
+        <section className={styles.exampleMessageSection}>
           <div className={styles.container}>
-            <div className={styles.trustGrid}>
-              <div>
-                <div className={styles.badge}>Clear local enquiry process</div>
-                <h2>
-                  A Wolverhampton tap repair enquiry page.
-                  <span> Built for fast WhatsApp contact.</span>
-                </h2>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Message examples</div>
+              <h2>
+                A clear tap message
+                <span> is short and specific.</span>
+              </h2>
+              <p>
+                Use plain English. The key is the tap location, symptom and
+                Wolverhampton area.
+              </p>
+            </div>
 
-                <p>
-                  The enquiry flow helps the visitor send the key details:
-                  Wolverhampton area, what type of tap is affected, whether it
-                  is leaking, dripping or broken, and how urgent it feels.
-                </p>
-
-                <div className={styles.trustList}>
-                  <div>
-                    <strong>Clear tap issue</strong>
-                    <span>
-                      Leaking tap, dripping tap, broken tap, loose fitting or
-                      low water flow.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Useful fixture detail</strong>
-                    <span>
-                      Kitchen sink, bathroom basin, bath tap or mixer tap.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Local area detail</strong>
-                    <span>
-                      Focused on Wolverhampton, WV postcodes and nearby areas.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Simple WhatsApp route</strong>
-                    <span>The message opens ready to edit before sending.</span>
-                  </div>
+            <div className={styles.exampleGrid}>
+              {quickExamples.map((example) => (
+                <div className={styles.exampleCard} key={example.value}>
+                  <span>{example.label}</span>
+                  <p>{example.value}</p>
                 </div>
-              </div>
-
-              <div className={styles.enquiryBox}>
-                <div className={styles.checkCircle}>✓</div>
-                <h3>What the visitor sends</h3>
-
-                <div className={styles.enquiryRows}>
-                  <div>
-                    <span>Area</span>
-                    <strong>Bilston / WV1 / Wednesfield</strong>
-                  </div>
-                  <div>
-                    <span>Issue</span>
-                    <strong>Leaking / dripping / broken tap</strong>
-                  </div>
-                  <div>
-                    <span>Urgency</span>
-                    <strong>Today / 24–48 hours / flexible</strong>
-                  </div>
-                  <div>
-                    <span>Fixture</span>
-                    <strong>Kitchen / bathroom / bath</strong>
-                  </div>
-                </div>
-
-                <Link href="/contact" className={styles.fullBtn}>
-                  Open Enquiry Page
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -371,14 +469,14 @@ export default function TapRepairWolverhamptonPage() {
         <section className={styles.areaSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Local relevance</div>
+              <div className={styles.badge}>Local coverage</div>
               <h2>
                 Tap repair enquiries across
-                <span> Wolverhampton.</span>
+                <span> Wolverhampton and WV areas.</span>
               </h2>
               <p>
-                The page includes Wolverhampton areas and WV postcode signals to
-                support local relevance for tap repair and plumber searches.
+                Add your Wolverhampton area or WV postcode so the enquiry is
+                clearly local.
               </p>
             </div>
 
@@ -393,10 +491,10 @@ export default function TapRepairWolverhamptonPage() {
         <section className={styles.faqSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Questions</div>
+              <div className={styles.badge}>Tap repair questions</div>
               <h2>
-                Tap repair
-                <span> Wolverhampton FAQs.</span>
+                Wolverhampton tap repair
+                <span> FAQs.</span>
               </h2>
             </div>
 
@@ -414,15 +512,15 @@ export default function TapRepairWolverhamptonPage() {
         <section className={styles.finalCta}>
           <div className={styles.container}>
             <div className={styles.finalBox}>
-              <h2>Need help with a tap issue in Wolverhampton?</h2>
+              <h2>Dripping, leaking or broken tap in Wolverhampton?</h2>
               <p>
-                Start with a WhatsApp enquiry. Add your area, tap issue and
-                urgency, then send the pre-filled message.
+                Send which tap is affected, what it is doing, whether water is
+                visible, and your Wolverhampton area.
               </p>
 
               <div className={styles.heroActionsCenter}>
                 <Link href="/contact" className={styles.primaryBtn}>
-                  Start WhatsApp Enquiry
+                  Describe the Tap Problem
                 </Link>
                 <a
                   href={whatsappLink}

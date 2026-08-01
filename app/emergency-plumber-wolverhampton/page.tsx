@@ -6,48 +6,137 @@ const whatsappLink =
   "https://wa.me/447405955956?text=Hi%2C%20I%20need%20urgent%20plumbing%20help%20in%20Wolverhampton.";
 
 export const metadata: Metadata = {
-  title: "Emergency Plumber Wolverhampton | Urgent Plumbing Enquiries",
+  title: "Emergency Plumber Wolverhampton | Urgent Plumbing Help",
   description:
-    "Need urgent plumbing help in Wolverhampton? Send a WhatsApp enquiry for leaks, blocked toilets, blocked drains, tap repairs, bathroom plumbing and burst pipe concerns.",
+    "Emergency plumber Wolverhampton enquiries for leaks, burst pipe concerns, blocked toilets, blocked drains, urgent tap problems and sudden water issues.",
+  keywords: [
+    "emergency plumber Wolverhampton",
+    "emergency plumbers Wolverhampton",
+    "urgent plumber Wolverhampton",
+    "24 hour plumber Wolverhampton",
+    "blocked toilet Wolverhampton",
+    "blocked drains Wolverhampton",
+    "burst pipe Wolverhampton",
+    "leak repair Wolverhampton",
+    "plumber Wolverhampton",
+  ],
   alternates: {
     canonical: "/emergency-plumber-wolverhampton",
   },
+  openGraph: {
+    title: "Emergency Plumber Wolverhampton | Urgent Plumbing Help",
+    description:
+      "Send a clear WhatsApp enquiry for urgent plumbing issues in Wolverhampton including leaks, blocked toilets, blocked drains and burst pipe concerns.",
+    url: "https://wolverhamptonplumber.co.uk/emergency-plumber-wolverhampton",
+    type: "website",
+    locale: "en_GB",
+  },
 };
 
-const services = [
+const urgentIssues = [
   {
-    title: "Emergency Plumbing",
-    text: "Send urgent plumbing enquiries for leaks, pipework concerns, blocked toilets and sudden water problems across Wolverhampton.",
-    points: [
-      "Leaks & pipe concerns",
-      "Blocked toilets",
-      "Urgent plumbing issues",
-    ],
+    title: "Water leaking now",
+    text: "Visible water from a pipe, fitting, ceiling, wall, toilet, sink or appliance connection.",
+    href: "/leak-repair-wolverhampton",
   },
   {
-    title: "Blocked Toilets",
-    text: "For toilet blockages, rising water, repeated flushing problems or bathroom waste issues.",
-    points: ["Toilet blockage", "Rising water", "Bathroom waste issues"],
+    title: "Toilet blocked with rising water",
+    text: "A toilet that will not clear, water rising after flushing, or bathroom waste concerns.",
+    href: "/blocked-toilet-wolverhampton",
   },
   {
-    title: "Blocked Drains",
-    text: "For blocked sinks, slow draining water, bathroom drains, kitchen waste and outside drain concerns.",
-    points: ["Blocked sinks", "Slow draining water", "Drainage concerns"],
+    title: "Blocked drain or overflow",
+    text: "Slow water, outside drain concerns, bad smells, gurgling or water backing up.",
+    href: "/blocked-drains-wolverhampton",
   },
   {
-    title: "Leak Repairs",
-    text: "For leaking taps, leaking pipework, under-sink leaks, bathroom leaks and kitchen water issues.",
-    points: ["Under-sink leaks", "Pipework leaks", "Tap leaks"],
+    title: "Tap or fitting will not stop",
+    text: "A tap, valve or fitting leaking, dripping heavily, stuck open or causing water waste.",
+    href: "/tap-repair-wolverhampton",
   },
   {
-    title: "Bathroom Plumbing",
-    text: "For toilets, basins, baths, showers and bathroom pipework enquiries in Wolverhampton.",
-    points: ["Toilets", "Showers", "Basins & baths"],
+    title: "Bathroom plumbing problem",
+    text: "Toilet, basin, shower, bath or bathroom pipework issue that needs clear details sent quickly.",
+    href: "/bathroom-plumber-wolverhampton",
   },
   {
-    title: "Kitchen Plumbing",
-    text: "For kitchen sink leaks, waste pipe problems, appliance pipework and water supply issues.",
-    points: ["Kitchen sinks", "Waste pipes", "Appliance pipework"],
+    title: "Kitchen plumbing problem",
+    text: "Kitchen sink leak, blocked sink, waste pipe issue or appliance pipework concern.",
+    href: "/kitchen-plumber-wolverhampton",
+  },
+];
+
+const emergencySignals = [
+  {
+    title: "Water is spreading",
+    text: "Say where the water is coming from, what room it is in, and whether it is spreading.",
+  },
+  {
+    title: "Toilet water is rising",
+    text: "Avoid repeat flushing. Mention whether the toilet is fully blocked or slow to clear.",
+  },
+  {
+    title: "More than one drain is affected",
+    text: "If the toilet, sink, bath or shower are all affected, include that detail.",
+  },
+  {
+    title: "You cannot isolate the water",
+    text: "Say whether you know where the stop tap is and whether it turns safely.",
+  },
+  {
+    title: "The problem started suddenly",
+    text: "Mention when it started and whether anything changed before the issue appeared.",
+  },
+  {
+    title: "There is a safety concern",
+    text: "If water is near electrics or there is serious flooding, keep safe first.",
+  },
+];
+
+const messageChecklist = [
+  "Your Wolverhampton area or WV postcode",
+  "The exact issue: leak, toilet, drain, tap, kitchen or bathroom",
+  "Whether water is leaking, rising, overflowing or draining slowly",
+  "Whether you can turn the water off safely",
+  "When the problem started",
+  "Photos only if safe and useful",
+];
+
+const processSteps = [
+  {
+    title: "Choose the issue",
+    text: "Pick the closest category so the enquiry is not vague.",
+  },
+  {
+    title: "Add the area",
+    text: "Use Wolverhampton, Bilston, Wednesfield, Tettenhall, WV postcode or nearby area.",
+  },
+  {
+    title: "Explain urgency",
+    text: "Say whether it needs attention today, within 24–48 hours, this week or flexible.",
+  },
+  {
+    title: "Review in WhatsApp",
+    text: "The message opens first so it can be checked and edited before sending.",
+  },
+];
+
+const safetyNotes = [
+  {
+    title: "Suspected gas smell",
+    text: "Do not treat this as a normal plumbing enquiry. Follow official gas emergency guidance immediately.",
+  },
+  {
+    title: "Water near electrics",
+    text: "Keep away from electrical risk and explain the situation clearly in the enquiry when safe.",
+  },
+  {
+    title: "Burst pipe concern",
+    text: "If safe, try to locate the stop tap and mention whether the water can be isolated.",
+  },
+  {
+    title: "Overflowing toilet",
+    text: "Avoid repeated flushing and say whether the water level is rising or falling.",
   },
 ];
 
@@ -60,6 +149,9 @@ const areas = [
   "Bushbury",
   "Compton",
   "Whitmore Reans",
+  "Oxley",
+  "Finchfield",
+  "Merry Hill",
   "Willenhall",
   "Sedgley",
   "Codsall",
@@ -75,20 +167,24 @@ const areas = [
 
 const faqs = [
   {
-    q: "Can I send an emergency plumber enquiry in Wolverhampton?",
-    a: "Yes. You can send a WhatsApp enquiry with your area, issue, urgency and any useful details. The message opens pre-filled so you can edit it before sending.",
+    q: "What counts as an urgent plumbing enquiry?",
+    a: "Common urgent enquiries include active leaks, burst pipe concerns, blocked toilets with rising water, blocked drains, overflowing fixtures and sudden water problems.",
   },
   {
-    q: "What urgent plumbing problems can I send?",
-    a: "Common enquiries include leaks, blocked toilets, blocked drains, tap repairs, shower issues, bathroom plumbing and kitchen plumbing problems.",
+    q: "What should I send first?",
+    a: "Send your Wolverhampton area, the issue, whether water is leaking or rising, how urgent it feels, and whether the stop tap can be used safely.",
   },
   {
-    q: "Is attendance guaranteed?",
-    a: "No. This website helps organise local plumbing enquiries in Wolverhampton. Response depends on availability, timing and the details of the enquiry.",
+    q: "Should I call this an emergency if my toilet is blocked?",
+    a: "If the toilet water is rising, overflowing, or it is the only toilet available, it is usually worth treating the enquiry as urgent.",
   },
   {
-    q: "What about gas or boiler emergencies?",
-    a: "Gas work must be handled by a Gas Safe registered engineer. If you smell gas or suspect a gas leak, follow official emergency guidance immediately.",
+    q: "What if I smell gas?",
+    a: "If you smell gas or suspect a gas leak, follow official gas emergency guidance immediately. Gas work must be handled by a Gas Safe registered engineer.",
+  },
+  {
+    q: "Can I send photos?",
+    a: "Yes, if it is safe. Photos can help explain visible leaks, pipework, blocked fixtures or where water is appearing.",
   },
 ];
 
@@ -97,7 +193,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Emergency Plumber Wolverhampton Enquiries",
-    serviceType: "Emergency plumbing enquiries",
+    serviceType: "Urgent plumbing enquiry routing",
     areaServed: {
       "@type": "City",
       name: "Wolverhampton",
@@ -109,7 +205,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
     },
     url: "https://wolverhamptonplumber.co.uk/emergency-plumber-wolverhampton",
     description:
-      "Urgent plumbing enquiry page for Wolverhampton, including leaks, blocked toilets, blocked drains, tap repairs and burst pipe concerns.",
+      "Wolverhampton urgent plumbing enquiry page for leaks, burst pipe concerns, blocked toilets, blocked drains, tap problems and sudden water issues.",
   };
 
   const faqSchema = {
@@ -125,6 +221,25 @@ export default function EmergencyPlumberWolverhamptonPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://wolverhamptonplumber.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Emergency Plumber Wolverhampton",
+        item: "https://wolverhamptonplumber.co.uk/emergency-plumber-wolverhampton",
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -137,6 +252,11 @@ export default function EmergencyPlumberWolverhamptonPage() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <main className={styles.page}>
         <section className={styles.hero}>
@@ -144,7 +264,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
             <div className={styles.heroGrid}>
               <div className={styles.heroText}>
                 <div className={styles.badge}>
-                  Available for Wolverhampton enquiries
+                  Urgent Wolverhampton plumbing enquiries
                 </div>
 
                 <h1>
@@ -153,14 +273,14 @@ export default function EmergencyPlumberWolverhamptonPage() {
                 </h1>
 
                 <p>
-                  Need urgent plumbing help in Wolverhampton? Send a WhatsApp
-                  enquiry for leaks, blocked toilets, blocked drains, tap
-                  repairs, bathroom plumbing and burst pipe concerns.
+                  If water is leaking, a toilet is blocked, a drain is backing
+                  up, or a pipe problem feels urgent, send a clear Wolverhampton
+                  plumbing enquiry with the issue, area and urgency included.
                 </p>
 
                 <div className={styles.heroActions}>
                   <Link href="/contact" className={styles.primaryBtn}>
-                    Start WhatsApp Enquiry
+                    Describe Urgent Issue
                   </Link>
                   <a
                     href={whatsappLink}
@@ -168,21 +288,20 @@ export default function EmergencyPlumberWolverhamptonPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    WhatsApp Now
+                    WhatsApp Urgent Enquiry
                   </a>
                 </div>
 
                 <div className={styles.microTrust}>
-                  <span>WhatsApp enquiry flow</span>
-                  <span>WV postcode focused</span>
-                  <span>Clear safety guidance</span>
+                  <span>Leaks and burst pipe concerns</span>
+                  <span>Blocked toilets and drains</span>
+                  <span>WV area focused</span>
                 </div>
 
                 <small>
-                  This website helps organise local plumbing enquiries. Response
-                  depends on availability, timing and the details of the
-                  enquiry. Gas work must be handled by a Gas Safe registered
-                  engineer.
+                  For gas smells or suspected gas leaks, follow official
+                  emergency guidance immediately. Gas work must be handled by a
+                  Gas Safe registered engineer.
                 </small>
               </div>
 
@@ -195,32 +314,32 @@ export default function EmergencyPlumberWolverhamptonPage() {
                 <div className={styles.requestCard}>
                   <div className={styles.requestIcon}>✓</div>
 
-                  <p>WhatsApp plumbing enquiry</p>
-                  <h2>Send your issue clearly</h2>
+                  <p>Emergency message</p>
+                  <h2>Say what is happening now</h2>
 
                   <div className={styles.requestRows}>
                     <div>
-                      <span>Area</span>
-                      <strong>Bilston / WV1 / Wednesfield</strong>
-                    </div>
-                    <div>
                       <span>Issue</span>
-                      <strong>Leak, blocked toilet or drain</strong>
+                      <strong>Leak, burst pipe, toilet or drain</strong>
                     </div>
                     <div>
-                      <span>Urgency</span>
-                      <strong>Today / 24–48 hours / flexible</strong>
+                      <span>Area</span>
+                      <strong>WV postcode or Wolverhampton area</strong>
+                    </div>
+                    <div>
+                      <span>Risk</span>
+                      <strong>Water rising, spreading or overflowing?</strong>
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.visualBottom}>
                   <div>
-                    <span>Message format</span>
-                    <strong>Area + Issue + Urgency</strong>
+                    <span>Useful detail</span>
+                    <strong>can water be isolated?</strong>
                   </div>
                   <div>
-                    <span>Sent by</span>
+                    <span>Channel</span>
                     <strong>WhatsApp</strong>
                   </div>
                 </div>
@@ -229,20 +348,129 @@ export default function EmergencyPlumberWolverhamptonPage() {
 
             <div className={styles.heroStats}>
               <div>
-                <strong>Wolverhampton</strong>
-                <span>local enquiry focus</span>
-              </div>
-              <div>
-                <strong>WhatsApp</strong>
-                <span>fast message flow</span>
-              </div>
-              <div>
-                <strong>Leaks</strong>
-                <span>pipes, taps, sinks</span>
+                <strong>Urgent leaks</strong>
+                <span>clear first message</span>
               </div>
               <div>
                 <strong>Blocked toilets</strong>
-                <span>urgent enquiries</span>
+                <span>water rising details</span>
+              </div>
+              <div>
+                <strong>Blocked drains</strong>
+                <span>slow water and smells</span>
+              </div>
+              <div>
+                <strong>Wolverhampton</strong>
+                <span>WV area focus</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.emergencyMatrixSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Choose the urgent issue</div>
+              <h2>
+                Emergency plumbing problems
+                <span> are not all the same.</span>
+              </h2>
+              <p>
+                Each situation needs different details. Choose the closest page
+                or send a WhatsApp enquiry with what is happening now.
+              </p>
+            </div>
+
+            <div className={styles.emergencyMatrix}>
+              {urgentIssues.map((issue) => (
+                <Link
+                  href={issue.href}
+                  className={styles.emergencyIssueCard}
+                  key={issue.href}
+                >
+                  <strong>{issue.title}</strong>
+                  <p>{issue.text}</p>
+                  <span>Open related page →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.drainSignsSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Urgent signs to mention</div>
+              <h2>
+                What makes the enquiry
+                <span> clearer?</span>
+              </h2>
+              <p>
+                The enquiry does not need technical wording. It just needs clear
+                facts about what is happening in the property.
+              </p>
+            </div>
+
+            <div className={styles.signsGrid}>
+              {emergencySignals.map((item) => (
+                <article className={styles.signCard} key={item.title}>
+                  <span>•</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.messageChecklistSection}>
+          <div className={styles.container}>
+            <div className={styles.checklistPanel}>
+              <div>
+                <div className={styles.badge}>Before you send</div>
+                <h2>
+                  Urgent plumbing message
+                  <span> checklist.</span>
+                </h2>
+                <p>
+                  A clear first message helps explain the issue without a long
+                  back-and-forth. These are the details that matter most.
+                </p>
+              </div>
+
+              <ul>
+                {messageChecklist.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.emergencyProcessSection}>
+          <div className={styles.container}>
+            <div className={styles.processPanel}>
+              <div>
+                <div className={styles.badge}>How it works</div>
+                <h2>
+                  Built for people
+                  <span> dealing with stress.</span>
+                </h2>
+                <p>
+                  Urgent plumbing searches usually happen on a phone. The goal
+                  is to turn the problem into a short message that is easy to
+                  read and act on.
+                </p>
+              </div>
+
+              <div className={styles.processSteps}>
+                {processSteps.map((step, index) => (
+                  <div key={step.title}>
+                    <span>{index + 1}</span>
+                    <strong>{step.title}</strong>
+                    <p>{step.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -251,106 +479,25 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.servicesSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>What people search for</div>
+              <div className={styles.badge}>Safety-first notes</div>
               <h2>
-                Urgent plumbing enquiries,
-                <span> clearly organised.</span>
+                Some issues need
+                <span> extra caution.</span>
               </h2>
               <p>
-                The page is built around the main Wolverhampton plumbing issues
-                people search for when they need help quickly.
+                This page is for plumbing enquiries, but some situations need
+                official emergency guidance or specialist handling.
               </p>
             </div>
 
             <div className={styles.cardsGrid}>
-              {services.map((service) => (
-                <article className={styles.serviceCard} key={service.title}>
+              {safetyNotes.map((note) => (
+                <article className={styles.serviceCard} key={note.title}>
                   <div className={styles.serviceIcon}>✓</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  <ul>
-                    {service.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <h3>{note.title}</h3>
+                  <p>{note.text}</p>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.trustSection}>
-          <div className={styles.container}>
-            <div className={styles.trustGrid}>
-              <div>
-                <div className={styles.badge}>Clear local enquiry process</div>
-                <h2>
-                  A Wolverhampton plumbing enquiry page.
-                  <span> Built for fast WhatsApp contact.</span>
-                </h2>
-                <p>
-                  This site is designed to collect clear plumbing enquiries from
-                  Wolverhampton users and route them through WhatsApp. The goal
-                  is simple: area, issue, urgency and useful details in one
-                  message.
-                </p>
-
-                <div className={styles.trustList}>
-                  <div>
-                    <strong>Clear enquiry flow</strong>
-                    <span>
-                      No confusing long form. The user sends a WhatsApp message.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Local wording</strong>
-                    <span>
-                      Focused on Wolverhampton, WV postcodes and nearby areas.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Safe claims</strong>
-                    <span>
-                      Clear wording, safety notes, and no confusing claims.
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Easy to monetise later</strong>
-                    <span>
-                      Once leads come in, they can be routed to a real local
-                      partner.
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.enquiryBox}>
-                <div className={styles.checkCircle}>✓</div>
-                <h3>What the visitor sends</h3>
-
-                <div className={styles.enquiryRows}>
-                  <div>
-                    <span>Area</span>
-                    <strong>Bilston / WV1 / Wednesfield</strong>
-                  </div>
-                  <div>
-                    <span>Issue</span>
-                    <strong>Leak / blocked toilet / blocked drain</strong>
-                  </div>
-                  <div>
-                    <span>Urgency</span>
-                    <strong>Today / 24–48 hours / flexible</strong>
-                  </div>
-                  <div>
-                    <span>Channel</span>
-                    <strong>WhatsApp message</strong>
-                  </div>
-                </div>
-
-                <Link href="/contact" className={styles.fullBtn}>
-                  Open Enquiry Page
-                </Link>
-              </div>
             </div>
           </div>
         </section>
@@ -358,14 +505,14 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.areaSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Service area signals</div>
+              <div className={styles.badge}>Local coverage</div>
               <h2>
                 Emergency plumbing enquiries across
-                <span> Wolverhampton.</span>
+                <span> Wolverhampton and WV areas.</span>
               </h2>
               <p>
-                Wolverhampton location signals help Google understand the page
-                is relevant to local plumbing searches, not generic UK traffic.
+                Add your area or postcode so the enquiry is clearly linked to
+                Wolverhampton and nearby WV locations.
               </p>
             </div>
 
@@ -380,7 +527,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.faqSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Questions</div>
+              <div className={styles.badge}>Emergency questions</div>
               <h2>
                 Emergency plumber
                 <span> Wolverhampton FAQs.</span>
@@ -401,15 +548,15 @@ export default function EmergencyPlumberWolverhamptonPage() {
         <section className={styles.finalCta}>
           <div className={styles.container}>
             <div className={styles.finalBox}>
-              <h2>Need urgent plumbing help in Wolverhampton?</h2>
+              <h2>Urgent plumbing issue in Wolverhampton?</h2>
               <p>
-                Start with a WhatsApp enquiry. Choose your issue, area and
-                urgency, then send the pre-filled message.
+                Send the issue, area, urgency and whether water is leaking,
+                rising, overflowing or spreading.
               </p>
 
               <div className={styles.heroActionsCenter}>
                 <Link href="/contact" className={styles.primaryBtn}>
-                  Start WhatsApp Enquiry
+                  Describe Urgent Issue
                 </Link>
                 <a
                   href={whatsappLink}
@@ -417,7 +564,7 @@ export default function EmergencyPlumberWolverhamptonPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  WhatsApp Now
+                  WhatsApp Urgent Enquiry
                 </a>
               </div>
             </div>
