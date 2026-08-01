@@ -2251,3 +2251,44 @@
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+/* Manual hotfix: make hero visual cards readable */
+.visualCard .requestCard h2 {
+  color: #b88400 !important;
+  -webkit-text-fill-color: #b88400 !important;
+  background: transparent !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  text-shadow: none !important;
+}
+
+.visualCard .requestCard p {
+  color: #6f5200 !important;
+  -webkit-text-fill-color: #6f5200 !important;
+}
+
+.visualCard .requestRows div {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(253, 185, 19, 0.22) !important;
+}
+
+.visualCard .requestRows span,
+.visualCard .visualBottom span {
+  color: #7a5a00 !important;
+  -webkit-text-fill-color: #7a5a00 !important;
+}
+
+.visualCard .requestRows strong,
+.visualCard .visualBottom strong {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+.visualCard .visualHeader strong {
+  color: #b88400 !important;
+  -webkit-text-fill-color: #b88400 !important;
+}
+
+.visualCard .visualHeader span {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
