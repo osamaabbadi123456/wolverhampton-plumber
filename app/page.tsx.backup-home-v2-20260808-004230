@@ -1,0 +1,624 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import styles from "./emergency-plumber-wolverhampton/EmergencyPage.module.css";
+
+const whatsappLink =
+  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20plumbing%20help%20in%20Wolverhampton.";
+
+export const metadata: Metadata = {
+  title: "Wolverhampton Plumber | Local Plumbing Enquiry Website",
+  description:
+    "Wolverhampton plumbing enquiry website for blocked toilets, blocked drains, leaks, tap repairs, kitchen plumbing, bathroom plumbing and water pressure problems.",
+  keywords: [
+    "Wolverhampton plumber",
+    "plumber Wolverhampton",
+    "emergency plumber Wolverhampton",
+    "blocked drains Wolverhampton",
+    "blocked toilet Wolverhampton",
+    "leak repair Wolverhampton",
+    "tap repair Wolverhampton",
+    "bathroom plumber Wolverhampton",
+    "kitchen plumber Wolverhampton",
+    "water pressure plumber Wolverhampton",
+    "local plumber Wolverhampton",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Wolverhampton Plumber | Local Plumbing Enquiry Website",
+    description:
+      "Send a clearer Wolverhampton plumbing enquiry for blocked toilets, drains, leaks, taps, bathroom plumbing, kitchen plumbing and water pressure problems.",
+    url: "https://wolverhamptonplumber.co.uk",
+    type: "website",
+    locale: "en_GB",
+  },
+};
+
+const services = [
+  {
+    title: "Blocked toilets",
+    href: "/blocked-toilet-wolverhampton",
+    text: "Toilet water rising, toilet not clearing, repeated flushing problems or one bathroom affected.",
+    points: ["Water level details", "Other drains check", "Urgency notes"],
+  },
+  {
+    title: "Blocked drains",
+    href: "/blocked-drains-wolverhampton",
+    text: "Slow sinks, bath or shower drainage, outside drain smells, gurgling or repeated blockages.",
+    points: ["Indoor or outside drain", "Smell or gurgling", "How long it has happened"],
+  },
+  {
+    title: "Leak repair",
+    href: "/leak-repair-wolverhampton",
+    text: "Visible water, under-sink leaks, pipework leaks, bathroom leaks or ceiling marks below plumbing.",
+    points: ["Where water appears", "When it leaks", "Photo helps a lot"],
+  },
+  {
+    title: "Tap repairs",
+    href: "/tap-repair-wolverhampton",
+    text: "Dripping taps, loose taps, stiff taps, leaking tap bases or poor flow from one tap.",
+    points: ["Hot, cold or both", "Constant or occasional", "Kitchen or bathroom"],
+  },
+  {
+    title: "Kitchen plumbing",
+    href: "/kitchen-plumber-wolverhampton",
+    text: "Kitchen sink waste, appliance pipework, dishwasher or washing machine connection concerns.",
+    points: ["Sink or appliance", "Waste pipe issue", "Leak or blockage"],
+  },
+  {
+    title: "Bathroom plumbing",
+    href: "/bathroom-plumber-wolverhampton",
+    text: "Bathroom sink, shower, bath, basin, toilet pipework and bathroom fixture enquiries.",
+    points: ["Fixture affected", "Leak or slow drain", "Only bathroom or whole home"],
+  },
+];
+
+const steps = [
+  {
+    title: "Choose the closest issue",
+    text: "Start with the problem: blocked toilet, drain, leak, tap, kitchen, bathroom or water pressure.",
+  },
+  {
+    title: "Add the Wolverhampton area",
+    text: "Mention Wolverhampton, Bilston, Wednesfield, Tettenhall, Penn, Bushbury or the closest WV postcode.",
+  },
+  {
+    title: "Send useful proof",
+    text: "A photo, short video or one clear sentence often explains the issue better than a long message.",
+  },
+  {
+    title: "Route the enquiry",
+    text: "The enquiry can then be checked and routed to available local plumbing help where possible.",
+  },
+];
+
+const pros = [
+  "Clearer first message",
+  "Less back-and-forth",
+  "Better job detail for the plumber",
+  "Useful for urgent mobile users",
+];
+
+const cons = [
+  "No fake instant ranking claims",
+  "No fake reviews or addresses",
+  "No guaranteed attendance claim",
+  "Real results still need Google trust",
+];
+
+const problemGuides = [
+  {
+    title: "Toilet water rising after flushing",
+    href: "/plumbing-advice/blocked-toilet-water-rising-wolverhampton",
+    text: "Do not keep flushing if the bowl is already high. Note whether water rises, holds or slowly drops.",
+  },
+  {
+    title: "Kitchen sink draining slowly",
+    href: "/plumbing-advice/kitchen-sink-draining-slowly-wolverhampton",
+    text: "Mention smells, gurgling, appliance connections and whether only the kitchen sink is slow.",
+  },
+  {
+    title: "Low pressure from one tap",
+    href: "/plumbing-advice/low-water-pressure-one-tap-wolverhampton",
+    text: "Check whether hot, cold or both are weak and whether other taps in the home are normal.",
+  },
+];
+
+const areas = [
+  "Wolverhampton",
+  "Bilston",
+  "Wednesfield",
+  "Tettenhall",
+  "Penn",
+  "Bushbury",
+  "Compton",
+  "Whitmore Reans",
+  "Oxley",
+  "Finchfield",
+  "Merry Hill",
+  "Willenhall",
+  "WV1",
+  "WV2",
+  "WV3",
+  "WV4",
+  "WV6",
+  "WV10",
+  "WV11",
+  "WV14",
+];
+
+const faqs = [
+  {
+    q: "What is Wolverhampton Plumber?",
+    a: "Wolverhampton Plumber is a Wolverhampton-focused plumbing enquiry website that helps visitors send clearer plumbing enquiries for common home plumbing problems.",
+  },
+  {
+    q: "Can I send photos with my enquiry?",
+    a: "Yes. A photo or short video can help explain a leak, blocked toilet, slow drain, tap problem or pipework concern more clearly.",
+  },
+  {
+    q: "Which details should I include first?",
+    a: "Include your area, the room or fixture affected, what is happening, how urgent it feels and whether the problem affects one fixture or more than one drain or tap.",
+  },
+  {
+    q: "Does this site cover nearby Wolverhampton areas?",
+    a: "The site focuses on Wolverhampton and nearby WV areas including Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Compton and Whitmore Reans.",
+  },
+];
+
+export default function HomePage() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Wolverhampton Plumber",
+    url: "https://wolverhamptonplumber.co.uk",
+    inLanguage: "en-GB",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Wolverhampton Plumber",
+    url: "https://wolverhamptonplumber.co.uk",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "plumbing enquiry",
+      telephone: "+447405955956",
+      areaServed: "Wolverhampton",
+      availableLanguage: "English",
+    },
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Wolverhampton Plumbing Enquiry Website",
+    serviceType: "Plumbing enquiry routing",
+    areaServed: {
+      "@type": "City",
+      name: "Wolverhampton",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Wolverhampton Plumber",
+      url: "https://wolverhamptonplumber.co.uk",
+    },
+    url: "https://wolverhamptonplumber.co.uk",
+    description:
+      "Wolverhampton-focused plumbing enquiry website for blocked toilets, blocked drains, leaks, tap repairs, kitchen plumbing, bathroom plumbing and water pressure problems.",
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Wolverhampton plumbing enquiry services",
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: `https://wolverhamptonplumber.co.uk${service.href}`,
+    })),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <main className={styles.page}>
+        <section className={`${styles.hero} ${styles.homeHeroUpgrade}`}>
+          <div className={styles.container}>
+            <div className={styles.heroGrid}>
+              <div className={styles.heroText}>
+                <div className={styles.badge}>Wolverhampton plumbing enquiry website</div>
+
+                <h1>
+                  Send a clearer
+                  <span> plumbing enquiry.</span>
+                </h1>
+
+                <p>
+                  Choose the problem, add the Wolverhampton area, attach a photo
+                  if useful and send a WhatsApp enquiry for blocked toilets,
+                  drains, leaks, taps, kitchen plumbing, bathroom plumbing or
+                  water pressure problems.
+                </p>
+
+                <div className={styles.heroActions}>
+                  <Link href="/contact" className={styles.primaryBtn}>
+                    Build WhatsApp Enquiry
+                  </Link>
+
+                  <a
+                    href={whatsappLink}
+                    className={styles.secondaryBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp Direct
+                  </a>
+                </div>
+
+                <div className={styles.microTrust}>
+                  <span>Photo-ready enquiries</span>
+                  <span>WV area focused</span>
+                  <span>Problem-first pages</span>
+                </div>
+              </div>
+
+              <aside className={styles.homeVisualBoard} aria-label="Plumbing enquiry preview">
+                <div className={styles.visualTopLine}>
+                  <span>Live enquiry flow</span>
+                  <strong>Wolverhampton</strong>
+                </div>
+
+                <div className={styles.photoTileLarge}>
+                  <span>Blocked toilet / leak / slow drain</span>
+                  <strong>Send photo + area + urgency</strong>
+                </div>
+
+                <div className={styles.visualMiniGrid}>
+                  <div>
+                    <span>01</span>
+                    <strong>Issue</strong>
+                    <small>What happened?</small>
+                  </div>
+                  <div>
+                    <span>02</span>
+                    <strong>Area</strong>
+                    <small>WV postcode?</small>
+                  </div>
+                  <div>
+                    <span>03</span>
+                    <strong>Proof</strong>
+                    <small>Photo helps</small>
+                  </div>
+                </div>
+
+                <div className={styles.visualQuoteCard}>
+                  “My kitchen sink is draining slowly in Bilston. It gurgles
+                  when the washing machine drains. I can send a photo.”
+                </div>
+              </aside>
+            </div>
+
+            <div className={styles.trustStrip}>
+              <div>
+                <strong>Fast to understand</strong>
+                <span>area, issue, urgency and photo</span>
+              </div>
+              <div>
+                <strong>Built around intent</strong>
+                <span>blocked toilets, drains, leaks and taps</span>
+              </div>
+              <div>
+                <strong>Mobile-first</strong>
+                <span>made for people searching during a problem</span>
+              </div>
+              <div>
+                <strong>Safe positioning</strong>
+                <span>enquiry website, not fake trade claims</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.homeFinder}>
+          <div className={styles.container}>
+            <div className={styles.finderPanel}>
+              <div className={styles.sectionHeader}>
+                <div className={styles.badge}>Choose the closest problem</div>
+                <h2>
+                  Common Wolverhampton plumbing
+                  <span> enquiry pages.</span>
+                </h2>
+                <p>
+                  Each page targets a specific service problem instead of using
+                  one weak generic plumber page for every visitor.
+                </p>
+              </div>
+
+              <div className={styles.photoServiceGrid}>
+                {services.map((service) => (
+                  <Link href={service.href} className={styles.photoServiceCard} key={service.href}>
+                    <div className={styles.servicePhotoMock}>
+                      <span>{service.title}</span>
+                    </div>
+                    <div className={styles.photoServiceBody}>
+                      <strong>{service.title}</strong>
+                      <p>{service.text}</p>
+                      <ul>
+                        {service.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                      <em>Open enquiry page →</em>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.processSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Clear steps</div>
+              <h2>
+                How the enquiry
+                <span> should work.</span>
+              </h2>
+              <p>
+                This mirrors the stronger competitor pattern: simple steps,
+                practical details and less confusion before the first reply.
+              </p>
+            </div>
+
+            <div className={styles.stepGrid}>
+              {steps.map((step, index) => (
+                <article className={styles.stepCard} key={step.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.splitSection}>
+          <div className={styles.container}>
+            <div className={styles.splitGrid}>
+              <div className={styles.splitCopy}>
+                <div className={styles.badge}>Why details matter</div>
+                <h2>
+                  A better first message can
+                  <span> save time.</span>
+                </h2>
+                <p>
+                  A vague message like “need a plumber” gives very little to act
+                  on. A clearer message explains the room, fixture, symptom,
+                  location and urgency before anyone asks the same questions
+                  again.
+                </p>
+
+                <div className={styles.exampleMessage}>
+                  <span>Better enquiry example</span>
+                  <p>
+                    “Wednesfield, WV11. Toilet water rises after flushing and
+                    slowly drops after 15 minutes. Bath and sink seem normal.
+                    Can send photo.”
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.prosConsGrid}>
+                <div className={styles.proBox}>
+                  <h3>What helps</h3>
+                  <ul>
+                    {pros.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.conBox}>
+                  <h3>What we avoid</h3>
+                  <ul>
+                    {cons.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.servicesSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Useful advice</div>
+              <h2>
+                Problem-led guides
+                <span> people actually search.</span>
+              </h2>
+              <p>
+                These pages copy the useful competitor idea: answer real
+                problems, add local intent and internally link to the matching
+                service pages.
+              </p>
+            </div>
+
+            <div className={styles.cardsGrid}>
+              {problemGuides.map((guide) => (
+                <article className={styles.serviceCard} key={guide.href}>
+                  <div className={styles.serviceIcon}>✓</div>
+                  <h3>{guide.title}</h3>
+                  <p>{guide.text}</p>
+                  <Link href={guide.href} className={styles.cardLink}>
+                    Read guide
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.proofSection}>
+          <div className={styles.container}>
+            <div className={styles.proofPanel}>
+              <div>
+                <div className={styles.badge}>Trust signals to add next</div>
+                <h2>
+                  The site becomes stronger with
+                  <span> real proof.</span>
+                </h2>
+                <p>
+                  Once a real plumbing partner provides work photos, genuine
+                  customer feedback, social profiles and a real Google Business
+                  Profile, those signals can be added cleanly without fake
+                  reviews, fake addresses or fake job claims.
+                </p>
+              </div>
+
+              <div className={styles.proofChecklist}>
+                <div>
+                  <strong>Real work photos</strong>
+                  <span>Before/after photos from completed jobs</span>
+                </div>
+                <div>
+                  <strong>Real reviews</strong>
+                  <span>Only from genuine completed customer jobs</span>
+                </div>
+                <div>
+                  <strong>Local profiles</strong>
+                  <span>Business profiles and citations with consistent details</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.areaSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Local coverage</div>
+              <h2>
+                Wolverhampton and
+                <span> nearby WV areas.</span>
+              </h2>
+              <p>
+                The site is focused on Wolverhampton search intent, with support
+                pages for the local areas people actually type into Google.
+              </p>
+            </div>
+
+            <div className={styles.areaPills}>
+              {areas.map((area) => (
+                <span key={area}>{area}</span>
+              ))}
+            </div>
+
+            <div className={styles.areaLinkBox}>
+              <h3>Area pages already live</h3>
+              <p>
+                Bilston, Wednesfield, Tettenhall, Penn and Bushbury support the
+                main Wolverhampton service pages and create cleaner local
+                internal linking.
+              </p>
+              <Link href="/areas-covered" className={styles.cardLink}>
+                View areas covered
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.faqSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.badge}>Questions</div>
+              <h2>
+                Wolverhampton plumbing enquiry
+                <span> FAQs.</span>
+              </h2>
+            </div>
+
+            <div className={styles.faqGrid}>
+              {faqs.map((item) => (
+                <details className={styles.faqItem} key={item.q}>
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.finalCta}>
+          <div className={styles.container}>
+            <div className={styles.finalBox}>
+              <h2>Send a clear Wolverhampton plumbing enquiry.</h2>
+              <p>
+                Choose the closest problem, add the area and urgency, then open
+                the prepared WhatsApp message.
+              </p>
+
+              <div className={styles.heroActionsCenter}>
+                <Link href="/contact" className={styles.primaryBtn}>
+                  Build WhatsApp Enquiry
+                </Link>
+
+                <a
+                  href={whatsappLink}
+                  className={styles.secondaryBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp Direct
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

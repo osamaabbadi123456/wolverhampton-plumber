@@ -1,0 +1,1 @@
+Internal image note: upload real, safe, relevant images into this folder using the filenames already listed in IMAGE-CHECKLIST.csv from the previous package. Nothing in this file is shown to site visitors.

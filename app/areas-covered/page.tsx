@@ -1,480 +1,265 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
-
-const whatsappLink =
-  "https://wa.me/447405955956?text=Hi%2C%20I%20need%20plumbing%20help%20in%20Wolverhampton.";
+import { areas, whatsappLink } from "../_data/siteContent";
+import { MotionReveal, MotionCard } from "../_components/MotionReveal";
+import { ServiceIcon } from "../_components/ServiceIcon";
 
 export const metadata: Metadata = {
-  title: "Areas Covered | Wolverhampton Plumbing Enquiries",
+  title: "Areas Covered | Wolverhampton Plumbing Enquiry Pages",
   description:
-    "Wolverhampton plumbing enquiry areas including Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Compton, Whitmore Reans and nearby WV postcodes.",
-  keywords: [
-    "plumber Wolverhampton",
-    "plumber Bilston",
-    "plumber Wednesfield",
-    "plumber Tettenhall",
-    "plumber Penn",
-    "plumber Bushbury",
-    "plumber Compton Wolverhampton",
-    "plumber Whitmore Reans",
-    "Wolverhampton plumbing areas",
-    "WV plumber",
-  ],
-  alternates: {
-    canonical: "/areas-covered",
-  },
-  openGraph: {
-    title: "Areas Covered | Wolverhampton Plumbing Enquiries",
-    description:
-      "Area hub for Wolverhampton plumbing enquiries including Bilston, Wednesfield, Tettenhall, Penn, Bushbury and nearby WV postcodes.",
-    url: "https://wolverhamptonplumber.co.uk/areas-covered",
-    type: "website",
-    locale: "en_GB",
-  },
+    "Wolverhampton plumbing enquiry coverage pages for Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Oxley, Compton, Finchfield and nearby areas.",
+  alternates: { canonical: "/areas-covered" },
 };
 
-const priorityAreas = [
+const coverageNotes = [
   {
-    area: "Bilston",
-    slug: "/plumber-bilston",
-    text: "Bilston plumbing enquiries for blocked toilets, blocked drains, leaks, tap repairs and kitchen or bathroom plumbing issues.",
-    services: ["Blocked toilets", "Leaks", "Kitchen plumbing"],
+    title: "Start with the area",
+    text: "Choose the closest Wolverhampton area page first, then narrow the enquiry by room, fixture and symptom.",
+    icon: "mapPin" as const,
   },
   {
-    area: "Wednesfield",
-    slug: "/plumber-wednesfield",
-    text: "Wednesfield plumbing enquiries for urgent water issues, slow drains, leaking pipework, weak water flow and bathroom problems.",
-    services: ["Emergency enquiries", "Blocked drains", "Water pressure"],
+    title: "Match area to service",
+    text: "A Bilston blocked drain enquiry is different from an Oxley outside tap issue or a Penn bathroom leak.",
+    icon: "check" as const,
   },
   {
-    area: "Tettenhall",
-    slug: "/plumber-tettenhall",
-    text: "Tettenhall plumbing enquiries for bathroom plumbing, tap problems, under-sink leaks, blocked toilets and general water issues.",
-    services: ["Bathroom plumbing", "Tap repairs", "Leak repair"],
-  },
-  {
-    area: "Penn",
-    slug: "/plumber-penn",
-    text: "Penn plumbing enquiries for leaks, blocked sinks, shower drainage, kitchen pipework, bathroom pipework and urgent plumbing concerns.",
-    services: ["Leak repair", "Blocked sinks", "Bathroom plumbing"],
-  },
-  {
-    area: "Bushbury",
-    slug: "/plumber-bushbury",
-    text: "Bushbury plumbing enquiries for blocked toilets, outside drain concerns, tap repairs, kitchen plumbing and water pressure issues.",
-    services: ["Blocked toilets", "Outside drains", "Tap repairs"],
+    title: "Use useful photos",
+    text: "Area pages explain which photos help: outside context, kitchen waste route, bathroom fixture, pipework or drain clue.",
+    icon: "camera" as const,
   },
 ];
 
-const otherAreas = [
-  "Wolverhampton",
-  "Compton",
-  "Whitmore Reans",
-  "Oxley",
-  "Finchfield",
-  "Merry Hill",
-  "Willenhall",
-  "Sedgley",
-  "Codsall",
-  "WV1",
-  "WV2",
-  "WV3",
-  "WV4",
-  "WV6",
-  "WV10",
-  "WV11",
-  "WV14",
-];
-
-const localServiceGroups = [
+const commonServiceCards = [
   {
-    title: "Urgent plumbing enquiries",
-    text: "For leaks, burst pipe concerns, blocked toilets, sudden water issues and plumbing problems that feel time-sensitive.",
+    label: "Emergency Plumber",
     href: "/emergency-plumber-wolverhampton",
+    intro: "Urgent water problems, active leaks and sudden plumbing issues.",
+    image: "emergency-plumber-wolverhampton-detail.jpg",
+    category: "Urgent plumbing",
   },
   {
-    title: "Blocked drains and toilets",
-    text: "For slow drainage, blocked sinks, blocked toilets, rising water, smells, gurgling and outside drain concerns.",
+    label: "Blocked Drains",
     href: "/blocked-drains-wolverhampton",
+    intro: "Drainage issues, outside drains, smells and water backing up.",
+    image: "blocked-drains-wolverhampton-detail.jpg",
+    category: "Drainage",
   },
   {
-    title: "Leaks and pipework",
-    text: "For visible water, under-sink leaks, bathroom leaks, kitchen leaks, tap leaks and pipework concerns.",
+    label: "Blocked Toilet",
+    href: "/blocked-toilet-wolverhampton",
+    intro: "Toilet water rising, flushing issues or repeated blockage signs.",
+    image: "blocked-toilet-wolverhampton-detail.jpg",
+    category: "Toilet plumbing",
+  },
+  {
+    label: "Leak Repair",
     href: "/leak-repair-wolverhampton",
+    intro: "Visible leaks under sinks, from pipework or around fixtures.",
+    image: "leak-repair-wolverhampton-detail.jpg",
+    category: "Leak enquiries",
   },
   {
-    title: "Taps, kitchens and bathrooms",
-    text: "For dripping taps, kitchen sinks, waste pipes, basins, baths, showers, toilets and bathroom pipework.",
+    label: "Tap Repair",
     href: "/tap-repair-wolverhampton",
-  },
-];
-
-const postcodeNotes = [
-  {
-    title: "WV postcode signals",
-    text: "Adding a WV postcode or nearby area helps make the enquiry clearer and more local.",
+    intro: "Dripping taps, stiff handles and tap faults in kitchens or bathrooms.",
+    image: "tap-repair-wolverhampton-detail.jpg",
+    category: "Taps and fixtures",
   },
   {
-    title: "Problem-first wording",
-    text: "The message should start with the issue: leak, blockage, toilet, tap, sink, shower or pressure problem.",
+    label: "Kitchen Plumbing",
+    href: "/kitchen-plumber-wolverhampton",
+    intro: "Kitchen sinks, waste pipes, appliance connections and under-sink issues.",
+    image: "kitchen-plumber-wolverhampton-detail.jpg",
+    category: "Kitchen plumbing",
   },
   {
-    title: "Area before details",
-    text: "A useful enquiry says where it is happening before going into the longer description.",
+    label: "Bathroom Plumbing",
+    href: "/bathroom-plumber-wolverhampton",
+    intro: "Toilets, basins, baths, showers and bathroom leaks or drainage.",
+    image: "bathroom-plumber-wolverhampton-detail.jpg",
+    category: "Bathroom plumbing",
   },
   {
-    title: "Local pages next",
-    text: "Bilston, Wednesfield, Tettenhall, Penn and Bushbury are the first area pages to build.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Which Wolverhampton areas can send plumbing enquiries?",
-    a: "The site is focused on Wolverhampton and nearby WV areas including Bilston, Wednesfield, Tettenhall, Penn, Bushbury, Compton and Whitmore Reans.",
-  },
-  {
-    q: "Should I include my area in the WhatsApp message?",
-    a: "Yes. Include your Wolverhampton area or WV postcode so the enquiry is clearly local and easier to understand.",
-  },
-  {
-    q: "Are area pages being built for Bilston and Wednesfield?",
-    a: "Yes. The first area pages planned are Bilston, Wednesfield, Tettenhall, Penn and Bushbury, with unique wording for each area.",
-  },
-  {
-    q: "What should an area-based enquiry include?",
-    a: "Include the area, the plumbing issue, whether it is urgent, and any useful details such as water rising, visible leaks or slow drainage.",
+    label: "Water Pressure",
+    href: "/water-pressure-plumber-wolverhampton",
+    intro: "Weak flow from one fixture or wider hot and cold pressure issues.",
+    image: "water-pressure-plumber-wolverhampton-detail.jpg",
+    category: "Water pressure",
   },
 ];
 
 export default function AreasCoveredPage() {
-  const areaSchema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Wolverhampton Plumbing Enquiry Areas",
-    url: "https://wolverhamptonplumber.co.uk/areas-covered",
-    description:
-      "Area hub for Wolverhampton plumbing enquiries including Bilston, Wednesfield, Tettenhall, Penn, Bushbury and nearby WV postcodes.",
-    inLanguage: "en-GB",
-  };
-
-  const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Priority Wolverhampton plumbing areas",
-    itemListElement: priorityAreas.map((area, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: `${area.area} plumbing enquiries`,
-      url: `https://wolverhamptonplumber.co.uk${area.slug}`,
-    })),
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      <main className={styles.page}>
-        <section className={styles.hero}>
-          <div className={styles.container}>
-            <div className={styles.heroGrid}>
-              <div className={styles.heroText}>
-                <div className={styles.badge}>
-                  Wolverhampton plumbing enquiry areas
-                </div>
-
-                <h1>
-                  Areas Covered
-                  <span> Wolverhampton</span>
-                </h1>
-
-                <p>
-                  This area hub helps Wolverhampton visitors choose the right
-                  local plumbing enquiry route. Start with your area, then add
-                  the issue: blocked toilet, blocked drain, leak, tap repair,
-                  kitchen plumbing, bathroom plumbing or water pressure problem.
-                </p>
-
-                <div className={styles.heroActions}>
-                  <Link href="/contact" className={styles.primaryBtn}>
-                    Send Area Enquiry
-                  </Link>
-                  <a
-                    href={whatsappLink}
-                    className={styles.secondaryBtn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    WhatsApp Plumbing Enquiry
-                  </a>
-                </div>
-
-                <div className={styles.microTrust}>
-                  <span>Bilston</span>
-                  <span>Wednesfield</span>
-                  <span>Tettenhall</span>
-                  <span>Penn</span>
-                  <span>Bushbury</span>
-                </div>
-
-                <small>
-                  Add your Wolverhampton area or WV postcode in the message so
-                  the enquiry is clear from the first line.
-                </small>
-              </div>
-
-              <aside className={styles.visualCard}>
-                <div className={styles.visualHeader}>
-                  <span>Local enquiry</span>
-                  <strong>WV areas</strong>
-                </div>
-
-                <div className={styles.requestCard}>
-                  <div className={styles.requestIcon}>✓</div>
-
-                  <p>Area-first message</p>
-                  <h2>Area, issue and urgency</h2>
-
-                  <div className={styles.requestRows}>
-                    <div>
-                      <span>Area</span>
-                      <strong>Bilston, Wednesfield, Penn or WV postcode</strong>
-                    </div>
-                    <div>
-                      <span>Issue</span>
-                      <strong>Leak, drain, toilet, tap or pressure</strong>
-                    </div>
-                    <div>
-                      <span>Urgency</span>
-                      <strong>Today / 24–48 hours / flexible</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.visualBottom}>
-                  <div>
-                    <span>Local areas</span>
-                    <strong>area enquiry routes</strong>
-                  </div>
-                  <div>
-                    <span>Channel</span>
-                    <strong>WhatsApp</strong>
-                  </div>
-                </div>
-              </aside>
-            </div>
-
-            <div className={styles.heroStats}>
-              <div>
-                <strong>Bilston</strong>
-                <span>local enquiries</span>
-              </div>
-              <div>
-                <strong>Wednesfield</strong>
-                <span>urgent and drain issues</span>
-              </div>
-              <div>
-                <strong>Tettenhall</strong>
-                <span>bathroom and tap issues</span>
-              </div>
-              <div>
-                <strong>Penn & Bushbury</strong>
-                <span>nearby WV areas</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.areaHubSection}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Priority suburb pages</div>
-              <h2>
-                First Wolverhampton areas
-                <span> to build properly.</span>
-              </h2>
+    <main className={styles.page}>
+      <section className={`${styles.hero} ${styles.v27AreaCoverageHero}`}>
+        <div className={styles.v27CoverageBackdrop} />
+        <div className={styles.container}>
+          <div className={styles.v27CoverageHeroGrid}>
+            <MotionReveal className={styles.v27CoverageHeroText}>
+              <div className={styles.badge}>Wolverhampton area coverage</div>
+              <h1>
+                Start with the <span>closest area</span>, then the service.
+              </h1>
               <p>
-                These are not random suburb names. They are the first area pages
-                we will build with unique wording, different service angles and
-                strong internal links.
+                Use the Wolverhampton area pages to begin with location first,
+                then narrow the enquiry into the exact issue: blocked drains,
+                leaks, toilets, taps, kitchen plumbing, bathroom plumbing,
+                pressure or pipework.
               </p>
-            </div>
-
-            <div className={styles.areaHubGrid}>
-              {priorityAreas.map((area) => (
-                <article className={styles.areaHubCard} key={area.area}>
-                  <span>{area.area}</span>
-                  <h3>{area.area} plumbing enquiries</h3>
-                  <p>{area.text}</p>
-
-                  <ul>
-                    {area.services.map((service) => (
-                      <li key={service}>{service}</li>
-                    ))}
-                  </ul>
-
-                  <Link href={area.slug} className={styles.cardLink}>
-                    Open {area.area} page
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.areaServiceSection}>
-          <div className={styles.container}>
-            <div className={styles.areaServicePanel}>
-              <div>
-                <div className={styles.badge}>Service + area structure</div>
-                <h2>
-                  The goal is not “near me” spam.
-                  <span> It is useful local routing.</span>
-                </h2>
-                <p>
-                  Each area page should explain the most common enquiry types
-                  for that area and link back to the strongest service pages:
-                  emergency plumbing, drains, blocked toilets, leaks, taps,
-                  kitchens, bathrooms and water pressure.
-                </p>
-              </div>
-
-              <div className={styles.areaServiceList}>
-                {localServiceGroups.map((service) => (
-                  <Link href={service.href} key={service.href}>
-                    <strong>{service.title}</strong>
-                    <p>{service.text}</p>
-                    <span>View service page →</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.areaSection}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Other WV area signals</div>
-              <h2>
-                Wolverhampton, nearby areas
-                <span> and WV postcodes.</span>
-              </h2>
-              <p>
-                These area terms support local relevance without needing to make
-                a thin page for every single location immediately.
-              </p>
-            </div>
-
-            <div className={styles.areaPills}>
-              {otherAreas.map((area) => (
-                <span key={area}>{area}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.areaNotesSection}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.badge}>How to write the message</div>
-              <h2>
-                Add the local area
-                <span> before the plumbing details.</span>
-              </h2>
-              <p>
-                A simple, local message is easier to understand than a vague
-                message saying only “need plumber”.
-              </p>
-            </div>
-
-            <div className={styles.areaNotesGrid}>
-              {postcodeNotes.map((note) => (
-                <article className={styles.areaNoteCard} key={note.title}>
-                  <strong>{note.title}</strong>
-                  <p>{note.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.faqSection}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.badge}>Area questions</div>
-              <h2>
-                Wolverhampton plumbing areas
-                <span> FAQs.</span>
-              </h2>
-            </div>
-
-            <div className={styles.faqGrid}>
-              {faqs.map((item) => (
-                <details className={styles.faqItem} key={item.q}>
-                  <summary>{item.q}</summary>
-                  <p>{item.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.finalCta}>
-          <div className={styles.container}>
-            <div className={styles.finalBox}>
-              <h2>Need plumbing help in a Wolverhampton area?</h2>
-              <p>
-                Send the area first, then the issue and urgency. Example:
-                “Bilston blocked toilet, water rising after flushing, urgent
-                today.”
-              </p>
-
-              <div className={styles.heroActionsCenter}>
-                <Link href="/contact" className={styles.primaryBtn}>
-                  Build Area Enquiry
-                </Link>
+              <div className={styles.heroActions}>
                 <a
                   href={whatsappLink}
-                  className={styles.secondaryBtn}
+                  className={styles.primaryBtn}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  WhatsApp Plumbing Enquiry
+                  Send WhatsApp enquiry
                 </a>
+                <Link href="/plumbing-advice" className={styles.secondaryBtn}>
+                  Read advice first
+                </Link>
               </div>
-            </div>
+              <div className={styles.microTrust}>
+                <span>WV area pages</span>
+                <span>Photo-led guidance</span>
+                <span>Service shortcuts</span>
+              </div>
+            </MotionReveal>
+
+            <MotionReveal className={styles.v27CoverageShowcase}>
+              <div className={styles.v27CoverageStage}>
+                <div className={styles.v27CoverageStageImage} />
+                <div className={styles.v27CoverageFloatingCardOne}>
+                  <strong>Bilston</strong>
+                  <span>blocked drain + outside photo</span>
+                </div>
+                <div className={styles.v27CoverageFloatingCardTwo}>
+                  <strong>Penn</strong>
+                  <span>bathroom leak + fixture detail</span>
+                </div>
+                <div className={styles.v27CoverageFloatingCardThree}>
+                  <strong>Wednesfield</strong>
+                  <span>outside tap + visible spread</span>
+                </div>
+              </div>
+            </MotionReveal>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+
+      <MotionReveal className={styles.servicesSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.badge}>Coverage logic</div>
+            <h2>
+              How the area pages <span>help the enquiry.</span>
+            </h2>
+            <p>
+              Each area page is written to avoid repeating the same generic city
+              copy. The wording changes by local area, fixture type and useful
+              photo examples.
+            </p>
+          </div>
+          <div className={styles.v27CoverageNotesGrid}>
+            {coverageNotes.map((item, index) => (
+              <MotionCard
+                className={styles.v27CoverageNote}
+                delay={index * 0.05}
+                key={item.title}
+              >
+                <div className={styles.v4Icon}>
+                  <ServiceIcon name={item.icon} />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </MotionCard>
+            ))}
+          </div>
+        </div>
+      </MotionReveal>
+
+      <MotionReveal className={styles.areaSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.badge}>Choose an area</div>
+            <h2>
+              Wolverhampton area pages <span>with local wording.</span>
+            </h2>
+            <p>
+              Open the area closest to the property, then use the service or
+              advice links inside that page.
+            </p>
+          </div>
+          <div className={styles.v27AreaImageGrid}>
+            {areas.map((area, index) => {
+              const locationImage =
+                area.slug === "wolverhampton"
+                  ? "location-wolverhampton-city-centre.jpg"
+                  : `location-${area.slug}.jpg`;
+              return (
+                <MotionCard
+                  className={styles.v16CardWrap}
+                  delay={index * 0.025}
+                  key={area.slug}
+                >
+                  <Link href={area.href} className={styles.v27AreaImageCard}>
+                    <div
+                      className={styles.v27AreaImage}
+                      style={{
+                        backgroundImage: `linear-gradient(180deg, rgba(8, 33, 58, .06), rgba(8, 33, 58, .62)), url('/images/real/${locationImage}'), url('/images/real/${area.image}')`,
+                      }}
+                    />
+                    <div className={styles.v27AreaImageBody}>
+                      <span>{area.postcode}</span>
+                      <h3>{area.name}</h3>
+                      <p>{area.nearby}</p>
+                    </div>
+                  </Link>
+                </MotionCard>
+              );
+            })}
+          </div>
+        </div>
+      </MotionReveal>
+
+      <MotionReveal className={styles.trustSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.badge}>Service shortcuts</div>
+            <h2>
+              Common service pages <span>for local enquiries.</span>
+            </h2>
+            <p>
+              Jump from an area page into the closest service page when the
+              problem is already clear.
+            </p>
+          </div>
+          <div className={styles.v27CoverageServiceGrid}>
+            {commonServiceCards.map((service, index) => (
+              <MotionCard
+                className={styles.v16CardWrap}
+                delay={index * 0.03}
+                key={service.href}
+              >
+                <Link href={service.href} className={styles.v27CoverageServiceCard}>
+                  <div
+                    className={styles.v27CoverageServiceImage}
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(8, 33, 58, .06), rgba(8, 33, 58, .56)), url('/images/real/${service.image}')`,
+                    }}
+                  />
+                  <div className={styles.v27CoverageServiceBody}>
+                    <span>{service.category}</span>
+                    <h3>{service.label}</h3>
+                    <p>{service.intro}</p>
+                  </div>
+                </Link>
+              </MotionCard>
+            ))}
+          </div>
+        </div>
+      </MotionReveal>
+    </main>
   );
 }

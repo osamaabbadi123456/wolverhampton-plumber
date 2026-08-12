@@ -1,3 +1,4 @@
+import { MotionBoot } from "./_components/MotionBoot";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -30,10 +31,25 @@ export const metadata: Metadata = {
     siteName: "Wolverhampton Plumber",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/brand/og-image.png",
+        width: 1200,
+        height: 1200,
+        alt: "Wolverhampton Plumber",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wolverhampton Plumber | Plumbing Enquiries by WhatsApp",
+    description:
+      "Wolverhampton plumbing enquiry website for leaks, drains, taps, toilets and water pressure guidance.",
+    images: ["/brand/og-image.png"],
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: "/icon.png",
   },
   verification: {
     google: "h72gJUkOntRWM_Q3TBz4N3T7fqkXUevB3WKmeKRCckU",
@@ -68,6 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
 
         {children}
+        <MotionBoot />
 
         <footer className="siteFooter">
           <div className="footerInner">
@@ -77,7 +94,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 className="footerLogoImage"
                 aria-label="Wolverhampton Plumber home"
               >
-                <img src="/brand/logo.svg" alt="Wolverhampton Plumber" />
+                <img src="/brand/logo.png" alt="Wolverhampton Plumber" />{" "}
               </Link>
 
               <p>
@@ -88,7 +105,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
               <div className="footerActions">
                 <Link href="/contact">Send Enquiry</Link>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp
                 </a>
               </div>

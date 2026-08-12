@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/thank-you", "/marketing-assets"],
+        disallow: ["/thank-you", "/marketing-assets", "/videos"],
       },
     ],
     sitemap: "https://wolverhamptonplumber.co.uk/sitemap.xml",

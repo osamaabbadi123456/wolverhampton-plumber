@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -11,8 +11,7 @@ type LinkItem = {
   href: string;
 };
 
-const logoSrc = "/brand/logo.svg";
-
+const logoSrc = "/brand/logo.png";
 function DesktopDropdown({
   id,
   label,
