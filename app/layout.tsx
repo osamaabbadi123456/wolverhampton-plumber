@@ -1,4 +1,3 @@
-import { MotionBoot } from "./_components/MotionBoot";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -84,7 +83,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
 
         {children}
-        <MotionBoot />
 
         <footer className="siteFooter">
           <div className="footerInner">

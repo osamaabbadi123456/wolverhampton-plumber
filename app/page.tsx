@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./emergency-plumber-wolverhampton/EmergencyPage.module.css";
 import { featuredServices, extraServices, areas, articles, whatsappLink, siteUrl } from "./_data/siteContent";
 import { ServiceIcon } from "./_components/ServiceIcon";
-import { MotionReveal, MotionCard } from "./_components/MotionReveal";
 import { HomeVideoFrame } from "./_components/HomeVideoFrame";
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default function HomePage() {
       <section className={`${styles.hero} ${styles.v4Hero} ${styles.v16HomeHero} ${styles.v17HomeHero} ${styles.v21HomeHero}`}>
         <div className={styles.container}>
           <div className={styles.v16HeroGrid}>
-            <MotionReveal className={`${styles.v16HeroCopy} ${styles.v21HeroCopy}`}>
+            <div className={`${styles.v16HeroCopy} ${styles.v21HeroCopy}`}>
               <div className={styles.badge}>Wolverhampton plumbing enquiry website</div>
               <h1>Plumbing enquiries <span>made clearer.</span></h1>
               <p>
@@ -49,16 +48,16 @@ export default function HomePage() {
                 <span>Advice hub</span>
                 <span>Photo guidance</span>
               </div>
-            </MotionReveal>
+            </div>
 
-            <MotionReveal className={styles.v16HeroVideo}>
+            <div className={styles.v16HeroVideo}>
               <HomeVideoFrame />
-            </MotionReveal>
+            </div>
           </div>
         </div>
       </section>
 
-      <MotionReveal className={styles.servicesSection}>
+      <section className={styles.servicesSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.badge}>Core services</div>
@@ -67,22 +66,22 @@ export default function HomePage() {
           </div>
           <div className={styles.v16FeaturedServiceGrid}>
             {featuredServices.map((service, index) => (
-              <MotionCard className={styles.v16CardWrap} delay={index * 0.04} key={service.slug}>
+              <div className={styles.v16CardWrap} key={service.slug}>
                 <Link href={service.href} className={styles.v4ServiceTile}>
-                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .35), rgba(20, 184, 166, .12)), url('/images/real/${service.image}')` }} />
+                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .35), rgba(20, 184, 166, .12)), url('/images/real/${service.image.replace(/\.jpg$/i, "-home.webp")}')` }} />
                   <div>
                     <span>{service.category}</span>
                     <h3>{service.label}</h3>
                     <p>{service.intro}</p>
                   </div>
                 </Link>
-              </MotionCard>
+              </div>
             ))}
           </div>
         </div>
-      </MotionReveal>
+      </section>
 
-      <MotionReveal className={styles.trustSection}>
+      <section className={styles.trustSection}>
         <div className={styles.container}>
           <div className={styles.v4SplitGrid}>
             <div>
@@ -90,12 +89,12 @@ export default function HomePage() {
               <h2>Simple steps before <span>you send the message.</span></h2>
               <div className={styles.v4Steps}>
                 {steps.map((step, index) => (
-                  <MotionCard className={styles.v16StepWrap} delay={index * 0.05} key={step}>
+                  <div className={styles.v16StepWrap} key={step}>
                     <div className={styles.v4Step}>
                       <strong>{index + 1}</strong>
                       <span>{step}</span>
                     </div>
-                  </MotionCard>
+                  </div>
                 ))}
               </div>
             </div>
@@ -111,9 +110,9 @@ export default function HomePage() {
             </aside>
           </div>
         </div>
-      </MotionReveal>
+      </section>
 
-      <MotionReveal className={styles.servicesSection}>
+      <section className={styles.servicesSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.badge}>More plumbing help</div>
@@ -122,22 +121,22 @@ export default function HomePage() {
           </div>
           <div className={`${styles.v16FeaturedServiceGrid} ${styles.v21ExtraServiceGrid}`}>
             {extraServices.map((service, index) => (
-              <MotionCard className={styles.v16CardWrap} delay={index * 0.035} key={service.slug}>
+              <div className={styles.v16CardWrap} key={service.slug}>
                 <Link href={service.href} className={styles.v4ServiceTile}>
-                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('/images/real/${service.image}')` }} />
+                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('/images/real/${service.image.replace(/\.jpg$/i, "-home.webp")}')` }} />
                   <div>
                     <span>{service.category}</span>
                     <h3>{service.label}</h3>
                     <p>{service.intro}</p>
                   </div>
                 </Link>
-              </MotionCard>
+              </div>
             ))}
           </div>
         </div>
-      </MotionReveal>
+      </section>
 
-      <MotionReveal className={styles.areaSection}>
+      <section className={styles.areaSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.badge}>Areas covered</div>
@@ -148,9 +147,9 @@ export default function HomePage() {
             {areas.map((area) => <Link href={area.href} key={area.slug}>{area.name}</Link>)}
           </div>
         </div>
-      </MotionReveal>
+      </section>
 
-      <MotionReveal className={styles.trustSection}>
+      <section className={styles.trustSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.badge}>Advice hub</div>
@@ -159,19 +158,19 @@ export default function HomePage() {
           </div>
           <div className={styles.v4CardsGrid}>
             {articles.slice(0, 12).map((article, index) => (
-              <MotionCard className={styles.v16CardWrap} delay={index * 0.035} key={article.slug}>
+              <div className={styles.v16CardWrap} key={article.slug}>
                 <Link href={article.href} className={styles.v4InfoCard}>
                   <div className={styles.v4Icon}><ServiceIcon name="check" /></div>
                   <h3>{article.title}</h3>
                   <p>{article.highlight}</p>
                 </Link>
-              </MotionCard>
+              </div>
             ))}
           </div>
         </div>
-      </MotionReveal>
+      </section>
 
-      <MotionReveal className={styles.finalSection}>
+      <section className={styles.finalSection}>
         <div className={styles.container}>
           <div className={styles.finalBox}>
             <h2>Ready to send a clearer plumbing enquiry?</h2>
@@ -182,7 +181,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </MotionReveal>
+      </section>
     </main>
   );
 }

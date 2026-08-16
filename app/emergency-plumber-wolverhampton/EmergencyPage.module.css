@@ -1,4 +1,4 @@
-﻿.page {
+.page {
   --gold: #fdb913;
   --gold-dark: #b78000;
   --black: #111111;
@@ -6934,4 +6934,120 @@ html { scroll-behavior: smooth; }
     width: 52px !important;
     height: 52px !important;
   }
+}
+
+/* v24 final mobile/performance fixes */
+.v24StaticHeroVisual {
+  position: relative;
+  width: 100%;
+  min-height: 610px;
+  overflow: hidden;
+  border-radius: 44px;
+  background: url('/images/real/wolverhampton-plumbing-hero-home.webp') center 48% / cover no-repeat;
+  box-shadow: 0 34px 100px rgba(8,33,58,.18);
+  isolation: isolate;
+}
+.v24StaticShade { position:absolute; inset:0; background:linear-gradient(110deg,rgba(3,20,39,.78) 0%,rgba(3,20,39,.38) 52%,rgba(3,20,39,.12) 100%); }
+.v24DiagonalServices { position:absolute; z-index:2; left:32px; top:48px; display:flex; flex-direction:column; gap:12px; transform:rotate(-5deg); transform-origin:left top; }
+.v24DiagonalServices span { display:block; width:max-content; max-width:260px; padding:11px 18px; border-radius:999px; background:rgba(255,255,255,.93); color:#08213a; font-weight:900; box-shadow:0 12px 30px rgba(3,20,39,.18); }
+.v24StaticCaption { position:absolute; z-index:2; left:34px; right:34px; bottom:34px; padding:20px 22px; border-radius:24px; background:rgba(3,20,39,.78); color:#fff; backdrop-filter:blur(8px); }
+.v24StaticCaption small { display:block; color:#9ef4e9; font-weight:850; margin-bottom:5px; }
+.v24StaticCaption strong { display:block; font-size:1.25rem; line-height:1.2; }
+
+/* Real gap between hero and the next home section */
+.v21HomeHero { margin-bottom: 48px !important; }
+
+@media (max-width: 760px) {
+  .v24StaticHeroVisual { min-height:520px; border-radius:28px; background-position:center center; }
+  .v24DiagonalServices { left:18px; top:30px; gap:9px; }
+  .v24DiagonalServices span { max-width:220px; padding:9px 14px; font-size:.84rem; }
+  .v24StaticCaption { left:18px; right:18px; bottom:18px; padding:16px 17px; }
+  .v21HomeHero { margin-bottom: 34px !important; }
+}
+
+/* Service/advice mobile hero: stop the white info card covering the controls. */
+@media (max-width: 640px) {
+  .v22ServiceHero .v4HeroGrid,
+  .v15AdviceHubHero .v15AdviceHeroGrid,
+  .v15AdviceHero .v15AdviceHeroGrid { min-height: auto !important; }
+
+  .v22ServiceHero .heroText,
+  .v15AdviceHubHero .heroText,
+  .v15AdviceHero .heroText {
+    padding: 72px 14px 46px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .v22ServiceHero .heroText h1,
+  .v15AdviceHubHero .heroText h1,
+  .v15AdviceHero .heroText h1 {
+    font-size: clamp(2.25rem, 12vw, 3.55rem) !important;
+    overflow-wrap: anywhere;
+  }
+
+  .v22ServiceHero .microTrust,
+  .v15AdviceHubHero .microTrust,
+  .v15AdviceHero .microTrust { gap:8px !important; }
+
+  .v22ServiceHero .microTrust span,
+  .v15AdviceHubHero .microTrust span,
+  .v15AdviceHero .microTrust span { width:100% !important; min-width:0 !important; }
+
+  .v22ServiceHero .v4HeroPanel,
+  .v15AdviceHubHero .v4HeroPanel,
+  .v15AdviceHero .v4HeroPanel { display:none !important; }
+
+  .v22ServiceHero .v4PhotoHero,
+  .v15AdviceHubHero .v4PhotoHero,
+  .v15AdviceHero .v4PhotoHero {
+    transform:none !important;
+    animation:none !important;
+    background-position:center center !important;
+  }
+
+  .v22ServiceHero .v4PhotoHero::after,
+  .v15AdviceHubHero .v4PhotoHero::after,
+  .v15AdviceHero .v4PhotoHero::after { height:70px !important; }
+}
+
+/* v25 mobile performance: defer below-fold rendering without changing layout */
+@supports (content-visibility: auto) {
+  .servicesSection, .trustSection, .areaSection, .finalSection {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
+
+/* v26 performance: make service hero image directly discoverable and use compressed WebP */
+.v4PhotoHero { position: relative; background-image: none !important; background-color: #0a2740; }
+.v4PhotoHeroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.v4HeroPanel { position: relative; z-index: 3; }
+
+/* Reduce compositor/main-thread work without changing layout. */
+.v16FloatingPanel { animation: none !important; }
+@media (max-width: 760px) {
+  .v22ServiceHero .v4PhotoHero,
+  .v15AdviceHubHero .v4PhotoHero,
+  .v15AdviceHero .v4PhotoHero { animation: none !important; transform: none !important; }
+  .v4ServiceTile,
+  .v4InfoCard,
+  .v4MiniLink,
+  .v15ArticleCard,
+  .v15QuickCheckCard,
+  .v15AdviceStep,
+  .v14PhotoRow,
+  .v12PhotoRow,
+  .v4PhotoCard,
+  .primaryBtn,
+  .secondaryBtn,
+  .areaPills a { transition: none !important; }
 }

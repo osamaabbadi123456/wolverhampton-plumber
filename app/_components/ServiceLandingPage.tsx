@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import styles from "../emergency-plumber-wolverhampton/EmergencyPage.module.css";
 import {
   ServicePage,
@@ -288,6 +288,11 @@ const relatedServiceSlugs: Record<string, string[]> = {
   "boiler-heating-plumber-wolverhampton": ["radiator-plumber-wolverhampton", "pipe-repair-wolverhampton", "water-pressure-plumber-wolverhampton", "leak-repair-wolverhampton", "emergency-plumber-wolverhampton", "stop-tap-plumber-wolverhampton"],
 };
 
+
+function optimizedImage(name: string) {
+  return `/images/optimized/${name.replace(/\.(?:jpe?g|png)$/i, ".webp")}`;
+}
+
 function getCompareCopy(service: ServicePage): CompareCopy {
   return serviceComparisons[service.slug] || {
     helpfulTitle: `${service.label} details that help`,
@@ -362,7 +367,16 @@ export default function ServiceLandingPage({ service }: { service: ServicePage }
                 </div>
               </div>
 
-              <aside className={styles.v4PhotoHero} style={{ backgroundImage: `linear-gradient(90deg, rgba(3, 20, 39, .82), rgba(3, 20, 39, .20)), url('/images/real/${service.image}')` }}>
+              <aside className={styles.v4PhotoHero}>
+                <img
+                  className={styles.v4PhotoHeroImage}
+                  src={optimizedImage(service.image)}
+                  alt={`${service.label} Wolverhampton`}
+                  width="1100"
+                  height="760"
+                  fetchPriority="high"
+                  decoding="async"
+                />
                 <div className={styles.v4HeroPanel}>
                   <div className={styles.v4Icon}><ServiceIcon name={service.icon} /></div>
                   <strong>{service.label}</strong>
@@ -444,7 +458,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePage }
             <div className={styles.v4PhotoGrid}>
               {service.photoSlots.map((slot) => (
                 <article className={styles.v4PhotoCard} key={slot.image}>
-                  <div className={styles.v4PhotoFrame} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .38), rgba(20, 184, 166, .16)), url('/images/real/${slot.image}')` }}>
+                  <div className={styles.v4PhotoFrame} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .38), rgba(20, 184, 166, .16)), url('${optimizedImage(slot.image)}')` }}>
                     <span className={styles.v5PhotoBadge}><ServiceIcon name={service.icon} /></span>
                   </div>
                   <div><h3>{slot.title}</h3><p>{slot.text}</p></div>
@@ -477,7 +491,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePage }
             <div className={styles.v24RelatedImageGrid}>
               {related.map((item) => (
                 <Link href={item.href} key={item.slug} className={`${styles.v4ServiceTile} ${styles.v24RelatedImageCard}`}>
-                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('/images/real/${item.image}')` }} />
+                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('${optimizedImage(item.image)}')` }} />
                   <div>
                     <span>{item.category}</span>
                     <h3>{item.label}</h3>
@@ -487,7 +501,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePage }
               ))}
               {relatedArticles.map((item) => (
                 <Link href={item.href} key={item.slug} className={`${styles.v4ServiceTile} ${styles.v24RelatedImageCard}`}>
-                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('/images/real/${item.image}')` }} />
+                  <div className={styles.v4TileImage} style={{ backgroundImage: `linear-gradient(135deg, rgba(8, 33, 58, .34), rgba(20, 184, 166, .12)), url('${optimizedImage(item.image)}')` }} />
                   <div>
                     <span>{item.highlight}</span>
                     <h3>{item.title}</h3>
